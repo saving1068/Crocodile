@@ -1,0 +1,17 @@
+<view class='warp'  hidden="{{!isShow}}">
+  <view class='warp_bg'></view>
+  <view class='content'>
+    <view class='content_val'>
+       <view class='content_icon'>
+        <image src='../../Images/warling.png'></image>
+      </view>
+    </view>
+    <view class='content_font'>
+      <view class='font'>下载APP,享受更多功能</view>
+      <view class='font'>前往应用市场搜索“美丽领吧”并下载</view>
+    </view>
+    <view class='btn'>
+      <button bindtap='hideDialog'>知道啦</button>
+    </view>
+  </view>
+</view>

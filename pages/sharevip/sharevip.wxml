@@ -1,0 +1,28 @@
+<view class='warp'>
+  <view class='top_val'>
+    <view class='top'>
+      <image src='{{headImg}}'></image>
+    </view>
+    <view class='top_text'>
+      {{headText}}
+    </view> 
+    <view class='top_btn' bindtap='goToDetail'>
+      点击了解更多VIP详情
+    </view>
+  </view>
+  <view class='shopList'>
+    <view class='item' wx:for="{{list}}" data-skuid="{{item.skuId}}" data-spuid="{{item.spuId}}" bindtap='goToGoodDetail'>
+      <view class='item_img'>
+        <image src='{{item.imagePath}}'></image>
+      </view>
+      <view class='item_text'>
+        <view class='item_text_top'>{{item.name}}{{item.name}}</view>
+        <view class='item_text_bottom'>{{item.summery}}</view>
+      </view>
+      <view class='item_success'>
+         <view class='item_success_val' wx:if="{{item.isContinued ==0}}">成为VIP</view> 
+        <view class='item_success_active' wx:else>已开通VIP</view>
+      </view>
+    </view>
+  </view>
+</view>

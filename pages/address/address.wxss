@@ -1,0 +1,97 @@
+/* pages/mall/address/address.wxss */
+
+.submit{
+  width: 93%;
+  border-radius:2.5%; 
+  margin: 30rpx auto;
+}
+.active{
+  background: #e6bf6b;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  color: #fff;
+}
+.del{
+border: 1rpx solid #e5e5e5; 
+text-align: center;
+ margin: 0 auto;
+ 
+line-height: 88rpx;
+font-size: 30rpx;
+ width: 93%;
+border-radius:2.5%; 
+}
+.city__picker{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-size: 28rpx;
+  background: #fff;
+}
+.city__btn{
+  width: 690rpx;
+  padding: 0 30rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #007aff;
+  background: #ededed;
+  font-size: 34rpx;
+
+}
+.city__item{
+  line-height: 50px;
+}
+.shadow{
+  background: rgba(0,0,0,0.4);
+}
+.cell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  height: 88rpx;
+  font-size: 28rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+
+.cell .cell__text {
+  color: #333;
+}
+
+.cell .cell__input {
+  width: 540rpx;
+  position: relative
+}
+
+.cell__arrow {
+  display: flex;
+  align-items: center;
+}
+
+.cell .cell__arrow .cell__arrow__text {
+  color: #777;
+}
+
+.cell .cell__arrow .cell__arrow__icon {
+  margin-top: 2rpx;
+  margin-left: 18rpx;
+  width: 13rpx;
+  height: 24rpx;
+}
+
+.cell .cell__input .align__left {
+  text-align: left;
+}
+.cell__text__left{
+  width: 150rpx;
+}
+switch{
+  float: right;
+   
+}
+

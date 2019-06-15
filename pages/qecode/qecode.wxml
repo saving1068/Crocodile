@@ -1,0 +1,46 @@
+<view class='warp' wx:if="{{flag == 2}}" bindtap='isShow'>
+  <view class="content"  style='height:{{imgHeight}};'>
+    <swiper style='height:{{imgHeight}};' current="{{currentTab}}" bindchange="bindChange">
+      <block>
+        <swiper-item wx:for="{{img}}" circular>
+          <view class='content_img'  style='height:{{imgHeight}};'>
+            <image src='{{item.imagePath}}'></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='content_bottom'>
+      <view class='content_bottom_silder'>
+        <view class='content_bottom_silder_val {{currentTab==0 ? "tabBar_item_active" :" "}}'  data-current="0" bindtap="swichNav"></view>
+        <view class='content_bottom_silder_val {{currentTab==1 ? "tabBar_item_active" :" "}}'  data-current="1" bindtap="swichNav"></view>
+        <view class='content_bottom_silder_val {{currentTab==2 ? "tabBar_item_active" :" "}}'  data-current="2" bindtap="swichNav"></view>
+        <view class='content_bottom_silder_val {{currentTab==3 ? "tabBar_item_active" :" "}}'  data-current="3" bindtap="swichNav"></view>
+        <view class='content_bottom_silder_val {{currentTab==4 ? "tabBar_item_active" :" "}}'  data-current="4" bindtap="swichNav"></view>
+        <view class='tabBar_bottom' style="left:{{leftNum}}%"></view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view class='content_btn' catchtap='saveImg' data-num="{{currentTab}}" wx:if="{{isShow}}">
+      <view class='content_btn_img'>
+        <image src='../../Images/common_icon_save@2x.png'></image>
+      </view>
+      保存到相册
+    </view>
+  </view>
+</view>
+<view class='img'  wx:if="{{flag == 1}}">
+  <import src="../../wxParse/wxParse.wxml"/>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+<dialog id='dialog' 
+      title='提示' 
+      content='您还未绑定手机,请先绑定手机再进行操作' 
+      cancelText='取消' 
+      confirmText='确定'
+      isCancel='true'
+      bind:cancelEvent="_cancelEvent"  
+      bind:confirmEvent="_confirmEvent">
+    </dialog>
+<import src="../../components/toastTest/toastTest.wxml"/>
+<template is="toast" data="{{ ..._toast_ }}"/>

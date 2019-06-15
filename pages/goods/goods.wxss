@@ -1,0 +1,148 @@
+/* pages/goods/goods.wxss */
+  .changeType{
+    width: 300rpx;
+    font-size: 30rpx;
+    line-height: 48rpx;
+    text-align: center;
+    height: 48rpx;
+    border: 2rpx solid #e6bf6b;
+    border-radius:24rpx;
+    position: absolute;
+    top: 0;
+    bottom: 0; 
+    right: 0;
+    left: 0;
+    margin: auto;
+    color: #e6bf6b;
+  }
+	.content{
+		width: 100%;
+    min-height: 100%;
+		padding: 24rpx 24rpx;
+		box-sizing: border-box;
+		background: #F3F3F3;
+		
+		/*overflow: hidden;*/
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		/*align-content:space-between;*/
+	}
+	.content_item{
+		width: 340rpx;
+		height: 426rpx;
+		background: #FFFFFF;
+		border-radius: 15rpx;
+		overflow: hidden;
+		margin-top: 20rpx;
+		position: relative;
+	}
+	.content_item_img{
+		width: 100%;
+		height: 290rpx;
+		margin-top: 18rpx ;
+		text-align: center;
+	}
+.content_item_img	image{
+  height: 290rpx;
+  width: 100%;}
+	.content_item_text{
+	
+	
+	font-size:30rpx;
+
+		margin-top: 15rpx;
+		margin-left: 28rpx;	
+	}
+	.content_name{
+	text-align: left;
+	height:30rpx;
+	line-height:30rpx;
+	overflow: hidden;
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 1;
+	}
+	.content_item_text_pirce{
+		display: flex;
+		margin-top: 15rpx;
+		color: #E6BF6B;
+	}
+	.content_item_text_pirce .price{
+		font-size: 24rpx;
+	}
+	.content_item_text_pirce .mail{
+		color: #000000;
+		margin-left: 24rpx;
+		font-size: 22rpx;
+	}
+	
+	.content_item_text_pirce .vip{
+		width: 100rpx;
+		height: 32rpx;
+		font-size: 18rpx;
+		text-align: center;
+		margin-left: 18rpx;
+		background: #996023;
+    line-height: 32rpx;
+		color: #FFFFFF;
+    border-radius:5rpx; 
+	}
+
+	
+	.content_item_more_img{
+		width: 200rpx;
+		height: 170rpx;
+	
+		background-size:100% 100% ;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+	.bottom_msg{
+		width: 100%;
+		height: 200rpx;
+		margin-top: 30rpx;
+		text-align: center;
+		color: #666666;
+		font-size: 24rpx;
+	}
+	.bottom_btn{
+		width: 140rpx;
+		margin-top: 24rpx;
+		border: 1rpx solid #CCCCCC;
+		display: flex;
+		margin: 20rpx auto;
+	}
+	.bottom_btn p:nth-of-type(1){
+		width: 24rpx;
+		height: 28rpx;
+		margin-top: 1rpx;
+		margin-right: 10rpx;
+		
+	}
+	.serve{
+		width: 148rpx;
+		height:40rpx;
+    line-height: 40rpx;
+		border: 2rpx solid #CCCCCC;
+		border-radius:5rpx ;
+		margin: 30rpx auto;
+	}
+	.serve_img{
+		width: 24rpx;
+		height: 24rpx;
+		float: left;
+	
+	
+		position: relative;
+		top: 8rpx;
+		left:8rpx;
+	}
+  .points{
+  width: 180rpx;
+  overflow: hidden;text-overflow: ellipsis;white-space: nowrap;
+  }

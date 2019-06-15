@@ -1,0 +1,56 @@
+<view class='top'>
+  <image src='{{titleImg}}'></image>
+</view>
+<view class='tabBar_a'>
+  <view class='tabBar_item {{currentTab==0 ? "tabBar_item_active" :" "}}'  data-current="0" bindtap="swichNav">热门</view>
+  <view class='tabBar_item {{currentTab==1 ? "tabBar_item_active" :" "}}'  data-current="1" bindtap="swichNav">最新</view>
+  <view class='tabBar_bottom {{currentTab==1 ? "tabBar_bottom_move" :" "}}'></view>
+</view>
+<view class='content_bg'>
+  <view class='content'>
+    <!-- <swiper current="{{currentTab}}" bindchange="bindChange" style='height:{{swiperHeight}};'>
+      <block>
+        <swiper-item> -->
+          <view class='content-item_val'id='item_0' wx:if="{{currentTab==0}}">
+            <view class='content-item' wx:for="{{swiperList}}" data-Aid="{{item.id}}" bindtap='goToArtucleD'>
+              <view class='content_top'>
+                <view class='content_top_img'>
+                  <image src='../../Images/my_img_avatar_big@2x.png' wx:if="{{item.authorImgPath ==''}}"></image>
+                  <image src='{{item.authorImgPath}}' wx:else></image>
+                </view>
+                <view class='content_top_text'>{{item.author}}</view>
+              </view>
+              <view class='content_text'>
+                <view class='content_text_title'>{{item.title}}</view>
+                <view class='content_text_title_val'>{{item.summery}}</view>
+                <view class='content_text_img'>
+                  <image src='{{item.imagePath}}'></image>
+                </view>
+              </view>
+            </view>
+          </view>
+        <!-- </swiper-item> -->
+        <!-- <swiper-item> -->
+          <view class='content-item_val'id='item_1' wx:if="{{currentTab==1}}">
+            <view class='content-item' wx:for="{{swiperList}}" data-Aid="{{item.id}}" bindtap='goToArtucleD'> 
+              <view class='content_top'>
+                <view class='content_top_img'>
+                  <image src='../../Images/my_img_avatar_big@2x.png' wx:if="{{item.authorImgPath ==''}}"></image>
+                  <image src='{{item.authorImgPath}}' wx:else></image>
+                </view>
+                <view class='content_top_text'>{{item.author}}</view>
+              </view>
+              <view class='content_text'>
+                <view class='content_text_title'>{{item.title}}</view>
+                <view class='content_text_title_val'>{{item.summery}}</view>
+                <view class='content_text_img'>
+                  <image src='{{item.imagePath}}'></image>
+                </view>
+              </view>
+            </view>
+          </view>
+        <!-- </swiper-item> -->
+      <!-- </block> -->
+    <!-- </swiper> -->
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{"navigationBarTitleText": "美丽领吧",
+
+  "usingComponents": {
+    "dialog": "../../components/Dialog/dialog"
+  }
+}

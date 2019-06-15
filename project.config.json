@@ -1,0 +1,52 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.0.4",
+	"appid": "wxb71981b8de527047",
+	"projectname": "%E7%BE%8E%E4%B8%BD%E9%A2%86%E5%90%A7",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "goods",
+					"pathName": "pages/goodsDetail/goodsDetail",
+					"query": "skuId=460&spuId=427&type=0"
+				},
+				{
+					"id": 1,
+					"name": "goods",
+					"pathName": "pages/buysuccess/buysuccess",
+					"query": "skuId=463&spuId=430&orderId=1992"
+				}
+			]
+		}
+	}
+}

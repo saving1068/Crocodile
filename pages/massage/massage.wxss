@@ -1,0 +1,10 @@
+image{width: 100%;height: 100%}
+.warp{padding-left:25rpx;}
+.notice{padding: 30rpx 0;overflow: hidden;border-bottom: 1rpx solid #e5e5e5;position: relative}
+.notice_img{width: 100rpx;height: 100rpx;border-radius: 50%;overflow: hidden;float: left;background: salmon}
+.notice_text{float: left;padding-left: 30rpx;overflow: hidden;font-size: 28rpx;padding-top: 10rpx;width: 570rpx;}
+.notice_text_top{overflow: hidden}
+.notice_text_top_left{float: left}
+.notice_text_top_right{float: right;color: #ccc}
+.notice_text_bottom{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;color: #ccc}
+.num{width: 40rpx;height: 40rpx;position: absolute;background: #fe4436;border-radius:50%;left: 75rpx;top: 25rpx;text-align: center;line-height: 40rpx;font-size: 24rpx;color: #ffffff}

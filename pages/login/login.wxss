@@ -1,0 +1,24 @@
+image{width: 100%;height: 100%;vertical-align: top;}
+.close{font-size: 30rpx;height: 140rpx;padding: 30rpx 30rpx;}
+.btn{float: right;}
+.title{font-size: 45rpx;text-align: center;height: 215rpx;}
+.login_window{padding-left:50rpx;font-size:30rpx;width: 650rpx}
+.login_box{height: 285rpx;box-shadow:0rpx 5rpx 10rpx #cccccc;border-radius: 10rpx;}
+.login_ipong{padding: 40rpx 40rpx 0 40rpx;}
+.login_top{height: 60rpx;border-bottom: 1rpx solid #cccccc}
+.login_password{padding: 25rpx 40rpx;}
+.login_password_val{border-bottom: 1rpx solid #cccccc;overflow: hidden;height: 70rpx;}
+.login_bottom{height: 60rpx;width: 300rpx;float: left}
+.getM{width: 140rpx;height: 50rpx;border-radius: 10rpx;border: 1rpx solid #e6bf6b;color: #e6bf6b;font-size: 24rpx;text-align: center;line-height: 50rpx; float: right;}
+.agreement{padding: 40rpx 0 0 60rpx;}
+.agreement_val{overflow: hidden;}
+.agreement_val_gou{float: left;width: 35rpx;height: 35rpx;border-radius:50%;border: 1rpx solid #000000;}
+.agreement_val_gou_active{border: 1rpx solid transparent;}
+.agreement_val_font{float: left;padding-left: 25rpx;font-size: 26rpx;}
+.login_btn{width: 520rpx;height: 80rpx;line-height: 80rpx;text-align: center;background: #262626;color: #e6bf6b;border-radius:50rpx;margin: 55rpx auto;font-size: 34rpx;}
+.err_btn{
+width: 520rpx;height: 80rpx;line-height: 80rpx;text-align: center;background: #999999;color: #ffffff;border-radius:50rpx;margin: 55rpx auto;font-size: 34rpx;
+}
+.agreement_val_font navigator{
+  display: inline-block;
+}

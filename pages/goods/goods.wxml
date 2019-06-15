@@ -1,0 +1,45 @@
+<!--pages/goods/goods.wxml-->
+<view style='min-height:100%'>
+<view class="content">
+      <view style='position:relative;width:100%;height:50rpx;margin-bottom:20rpx;'>
+       <view class='changeType' wx:if="{{flag}}" bindtap="changeType">戳我去积分专区</view>
+       <view class='changeType' wx:if="{{!flag}}" bindtap="changeType">戳我去其他商品</view>
+      </view>
+			<view class="content_item" wx:for="{{list}}" bindtap="go_detail" data-spuId='{{item.spuId}}' data-skuId='{{item.skuId}}' data-score='{{item.discount}}'>
+				<view class="content_item_img">
+				
+          <image class="contentims" src="{{item.imagePath}}"></image>
+				</view>
+				<view class="content_item_text">
+					<view class="content_name">{{item.name}}</view>
+					<view class="content_item_text_pirce">
+						<text class="price" wx:if="{{flag}}"  >￥{{item.originalPrice}}</text>
+					 <view wx:if="{{flag}}">
+							<view class="vip" wx:if="{{item.isBought!=1&&item.isSampleSack==1}}">免费试用</view>
+              
+	<view class="vip" wx:elif="{{item.isContinued==1&&item.isBought==1}}">VIP续领</view>
+              	<view class="vip" wx:else >成为VIP</view>
+               </view>
+              <text class="price points" wx:if="{{!flag}}" >￥{{item.discountPrice}}+{{item.discount}}积分</text>
+						<text class="mail">{{item.mailing}}</text>
+					</view>
+				</view>
+			</view>
+			<view class="content_item">
+			
+					<image src="../../Images/items_icon_coming_soon@2x.png" class="content_item_more_img"></image>
+			
+			</view>
+			<view class="bottom_msg">
+				<view>没有想要的?</view>
+				<view>告诉我们，您的心怡宝贝，火速优惠上新哦!</view>
+				<view class="serve" bindtap='serve'>
+				
+          <image class="serve_img" src="../../Images/items_icon_service_small@2x.png"></image>
+					<text >联系客服</text>
+				</view>
+			</view>
+		
+		</view>
+
+</view>

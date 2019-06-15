@@ -1,0 +1,11 @@
+<view class='wx_dialog_container' hidden="{{!isShow}}">
+    <view class='wx-mask'></view>
+    <view class='wx-dialog'>
+        <view class='wx-dialog-title'>{{ title }}</view>
+        <view class='wx-dialog-content'>{{ content }}</view>
+        <view class='footer'>
+          <button class='btn cancel'  catchtap='_cancelEvent' wx:if='{{isCancel=="true"}}'>{{ cancelText }}</button>
+          <button class='btn comfirm'  bindgetuserinfo='_confirmEvent' open-type="getUserInfo">{{ confirmText }}</button>
+        </view>
+    </view>
+</view>

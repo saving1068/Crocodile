@@ -1,0 +1,133 @@
+<view class='tabBar_a'>
+  <view class='tabBar_item {{currentTab==0 ? "tabBar_item_active" :" "}}'  data-current="0" bindtap="swichNav">全部订单</view>
+  <view class='tabBar_item {{currentTab==1 ? "tabBar_item_active" :" "}}'  data-current="1" bindtap="swichNav">待发货</view>
+  <view class='tabBar_item {{currentTab==2 ? "tabBar_item_active" :" "}}'  data-current="2" bindtap="swichNav">待收货</view>
+  <view class='tabBar_bottom' style="left:{{leftNum}}%"></view>
+</view>
+<view class='content' >
+  <!-- <swiper current="{{currentTab}}" bindchange="bindChange" style='height:{{swiperHeight}}'> -->
+    <!-- <block> -->
+      <!-- <swiper-item> -->
+         <view  id="item_0" wx:if="{{currentTab == 0}}">  <!--全部订单-->
+          <view wx:for="{{swiperList}}" class='content_ul' >
+            <view class='content_list' data-id="{{item.id}}"   bindtap='goToOrdersD'>
+              <view class='item_img'>
+                <image src='{{item.imagePath}}'></image>
+              </view>
+              <view class='item_text'>{{item.name}}</view>
+              <view class='item_price'>实付金额：￥{{item.realAmount}}元</view>
+            </view>
+            <view class='content_list_btn'>
+              <view class='state' wx:if="{{item.status == 1}}">未支付</view>
+              <view class='state' wx:if="{{item.status == 3}}">待发货</view>
+              <view class='state' wx:if="{{item.status == 6}}">待收货</view>
+              <view class='state' wx:if="{{item.status == 8}}">已完成</view>
+              <view class='list_btn_ul {{item.status == 3||item.isShowLogistics == 0? "list_btn_ul_active":""}}'>
+                <view class='list_btn_li' wx:if="{{item.status == 8}}" data-shopId="{{item.id}}" bindtap='deleteOrder'>删除订单</view>
+                <view class='list_btn_li' wx:if="{{item.status == 3}}" data-shopId="{{item.id}}" bindtap='remindOrder'>提醒发货</view>
+                <view class='list_btn_li' wx:if="{{item.status == 6}}" data-shopId="{{item.id}}" bindtap='confirmOrder'>确定收货</view>
+                <view class='list_btn_li' wx:if="{{item.status != 3}}" data-isShowLogistics="{{item.isShowLogistics}}" bindtap='goToLogistics'>查看物流</view>
+                <view class='list_btn_li' style='border:1rpx solid #e6bf6b;color: #e6bf6b' wx:if="{{item.status == 1||item.isContinued!=1||item.isPassMuster!=1}}">立刻购买</view>
+                <view class='list_btn_li' style='border:1rpx solid #e6bf6b;color: #e6bf6b' data-skuId="{{item.skuId}}"  data-spuId="{{item.spuId}}"wx:if="{{item.isContinued==1&&item.isPassMuster==1}}" bindtap='goToGoodListD'>免费续领</view>
+              </view>
+            </view>
+          </view>
+          <view class='not' wx:if="{{swiperList.length ==0}}">
+              <view class='not_img'>
+                <image src='../../Images/my_bg_query_null@2x.png'></image>
+              </view>
+              <view class='not_font'>您还没有相关的订单</view>
+              <view class='not_btn' bindtap='goToGoodList'>戳我一下</view>
+          </view> 
+        </view>
+      <!-- </swiper-item> -->
+      <!-- <swiper-item> -->
+        <view  id="item_1" wx:if="{{currentTab == 1}}">
+          <view wx:for="{{Consignment}}" class='content_ul'> <!--待发货-->
+             <view class='content_list' data-id="{{item.id}}"  bindtap='goToOrdersD'>
+              <view class='item_img'>
+                <image src='{{item.imagePath}}'></image>
+              </view>
+              <view class='item_text'>{{item.name}}</view>
+              <view class='item_price'>实付金额：￥{{item.realAmount}}元</view>
+            </view>
+            <view class='content_list_btn'>
+              <view class='state' wx:if="{{item.status == 1}}">未支付</view>
+              <view class='state' wx:if="{{item.status == 3}}">待发货</view>
+              <view class='state' wx:if="{{item.status == 6}}">待收货</view>
+              <view class='state' wx:if="{{item.status == 8}}">已完成</view>
+              <view class='list_btn_ul list_btn_ul_active'>
+                <view class='list_btn_li' wx:if="{{item.status == 8}}" data-shopId="{{item.id}}" bindtap='deleteOrder'>删除订单</view>
+                <view class='list_btn_li' data-shopId="{{item.id}}" bindtap='remindOrder'>提醒发货</view>
+                <view class='list_btn_li' style='border:1rpx solid #e6bf6b;color: #e6bf6b' wx:if="{{item.status == 1||item.isContinued!=1||item.isPassMuster!=1}}">立刻购买</view>
+                <view class='list_btn_li' style='border:1rpx solid #e6bf6b;color: #e6bf6b' data-skuId="{{item.skuId}}"  data-spuId="{{item.spuId}}"wx:if="{{item.isContinued==1&&item.isPassMuster==1}}" bindtap='goToGoodListD'>免费续领</view>
+              </view>
+            </view>
+          </view>
+          <view class='not' wx:if="{{Consignment.length == 0}}">
+              <view class='not_img'>
+                <image src='../../Images/my_bg_query_null@2x.png'></image>
+              </view>
+              <view class='not_font'>您还没有相关的订单</view>
+              <view class='not_btn' bindtap='goToGoodList'>戳我一下</view>
+          </view> 
+        </view>
+      <!-- </swiper-item> -->
+      <!-- <swiper-item> -->
+        <view  id="item_2" wx:if="{{currentTab == 2}}"> <!--待收货-->
+          <view wx:for="{{waitArr}}" class='content_ul'>
+            <view class='content_list'data-id="{{item.id}}"  bindtap='goToOrdersD'>
+              <view class='item_img'>
+                <image src='{{item.imagePath}}'></image>
+              </view>
+              <view class='item_text'>{{item.name}}</view>
+              <view class='item_price'>实付金额：￥{{item.realAmount}}元</view>
+            </view>
+            <view class='content_list_btn'>
+              <view class='state' wx:if="{{item.status == 1}}">未支付</view>
+              <view class='state' wx:if="{{item.status == 3}}">待发货</view>
+              <view class='state' wx:if="{{item.status == 6}}">待收货</view>
+              <view class='state' wx:if="{{item.status == 8}}">已完成</view>
+              <view class='list_btn_ul'>
+                <view class='list_btn_li' wx:if="{{item.status == 8}}" data-shopId="{{item.id}}" bindtap='deleteOrder'>删除订单</view>
+                <view class='list_btn_li' wx:if="{{item.status == 3}}" data-shopId="{{item.id}}" bindtap='remindOrder'>提醒发货</view>
+                <view class='list_btn_li' wx:if="{{item.status == 6}}" data-shopId="{{item.id}}" bindtap='confirmOrder'>确定收货</view>
+                <view class='list_btn_li' bindtap='goToLogistics'>查看物流</view>
+                <view class='list_btn_li' style='border:1rpx solid #e6bf6b;color: #e6bf6b' wx:if="{{item.status == 1||item.isContinued!=1||item.isPassMuster!=1}}">立刻购买</view>
+                <view class='list_btn_li' style='border:1rpx solid #e6bf6b;color: #e6bf6b' data-skuId="{{item.skuId}}"  data-spuId="{{item.spuId}}"wx:if="{{item.isContinued==1&&item.isPassMuster==1}}" bindtap='goToGoodListD'>免费续领</view>
+              </view>
+            </view>
+          </view>
+           <view class='not' wx:if="{{waitArr.length == 0}}">
+              <view class='not_img'>
+                <image src='../../Images/my_bg_query_null@2x.png'></image>
+              </view>
+              <view class='not_font'>您还没有相关的订单</view>
+              <view class='not_btn' bindtap='goToGoodList'>戳我一下</view>
+            </view> 
+        </view>
+      <!-- </swiper-item> -->
+    <!-- </block> -->
+  <!-- </swiper> -->
+</view>
+
+<dialog id='dialog' 
+      title='提示' 
+      content='是否确定删除该订单？' 
+      cancelText='取消' 
+      confirmText='确定'
+      isCancel='true'
+      bind:cancelEvent="_cancelEvent"  
+      bind:confirmEvent="_confirmEvent">
+</dialog>
+<dialog id='dialogs' 
+      title='提示' 
+      content='是否确定收货？' 
+      cancelText='取消' 
+      confirmText='确定'
+      isCancel='true'
+      bind:cancelEvent="_cancelEvents"  
+      bind:confirmEvent="_confirmEvents">
+</dialog>
+<import src="../../components/toastTest/toastTest.wxml"/>
+<template is="toast" data="{{ ..._toast_ }}"/>

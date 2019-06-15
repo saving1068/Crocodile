@@ -1,0 +1,15 @@
+image{height: 100%;width:100%;}
+.top{height: 360rpx;background: salmon;position: relative;}
+.top_title{width: 400rpx;height: 80rpx;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;text-align: center;color: #ffffff;letter-spacing: 5rpx;}
+.top_title_text{font-size: 40rpx;}
+.top_title_text_1{font-size: 20rpx;color: rgba(241, 240, 240, 0.7);}
+.tabBar_a{overflow: hidden;position: relative;}
+.tabBar_item{float: left;width: 33.33%;height: 90rpx;text-align: center;line-height: 90rpx;font-size: 28rpx;border-bottom:2rpx solid #e5e5e5 }
+.tabBar_item_active{color:#e6bf6b;}
+.tabBar_bottom{ border-bottom: 5rpx solid  #e6bf6b;transition: 0.5s;position: absolute;bottom: 0;left: 0;width: 33%}  
+.content{background: #f3f3f3}
+.content_item{overflow: hidden;padding: 30rpx 25rpx;background: #ffffff;margin-bottom: 20rpx;}
+.content_item_num{width: 40rpx;height: 40rpx;background: #e6bf6b;text-align: center;line-height: 40rpx;border-radius:50%;overflow: hidden;float: left;font-size: 26rpx;color: #ffffff;}
+.content_item_text{float: left;padding-left: 20rpx;width: 585rpx;}
+.content_item_text_title{font-size: 28rpx;font-weight: 600}
+.content_item_text_val{font-size: 26rpx;color: #666666;line-height: 40rpx;padding-top: 15rpx;}

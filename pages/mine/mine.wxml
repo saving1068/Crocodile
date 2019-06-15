@@ -1,0 +1,107 @@
+<view class='bg'>
+  <view class='top'>
+    <view class='top_val'>
+      <view class='top_val_img'>
+        <image wx:if="{{Myinfo_img ==''}}" src='../../Images/my_img_avatar_big@2x.png'></image>
+        <image src='{{Myinfo_img}}'></image>
+      </view>
+      <view class='top_val_text'>
+        <button class='login_btn' wx:if="{{Myinfo_flag}}" open-type="getUserInfo" bindtap='goLogin'>点击登录/注册</button>
+        <text class='top_val_text_top' wx:else>{{Myinfo_name}}</text>
+        <view class='top_val_text_bottom'>
+            <view wx:if="{{ifLogin}}" class='top_val_text_img'>  
+             <image src='../../Images/my_icon_vip_gray@2x.png' wx:if="{{lv == 1}}"></image> 
+             <image src='../../Images/my_icon_vip_gold@2x.png' wx:if="{{lv == 2}}"></image> 
+           </view>   
+          <text>{{now}}</text>
+        </view> 
+      </view>
+      <view class='top_val_icon'>
+        <view class='top_val_icon_left' bindtap='goMassage'>
+          <image src='../../Images/my_btn_message@3x.png'></image>
+          <view class='massage_num' wx:if="{{message_num != 0}}"></view>
+        </view>
+        <view class='top_val_icon_right' bindtap='goMyInfo'>
+          <image src='../../Images/my_btn_set@3x.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='privilege_bg'>
+    <view class='privilege'>
+    <view class='privilege_item_title_warp' bindtap="goRich">
+      <view class='privilege_item_title'>会员特权</view>
+    </view>
+      <view class='privilege_item_warp'>
+        <view class='privilege_item' wx:for='{{privilegeList}}' data-spuId='{{item.spuId}}' data-skuId='{{item.skuId}}' bindtap='go_detail'>
+          <view class='privilege_item_img'>
+            <image src='{{item.catImgPath}}'></image>
+          </view>
+          {{item.catName}}
+        </view>
+      </view>   
+    </view>
+  </view>
+  <view class='money'>
+    <view class='money_val'>
+      <view class='money_val_title'>
+      <image src='../../Images/my_icon_money@2x.png'></image>
+      </view>
+      <view class='money_val_reward'>
+        <view>可提现金奖励</view>
+        <text>￥{{cash}}</text>
+      </view>
+      <view class='money_val_integral'>
+        <view>积分</view>
+        <text>{{points}}</text>
+      </view>
+      <view class='get_integral' bindtap='goDate'>
+        签到领积分
+      </view>
+    </view>
+  </view>
+  <view class='list'>
+      <view class='list_itme' bindtap='goSpokesperson'>
+          <text>我的代言人</text>
+          <view class='list_itme_right'>{{total}}人</view>
+      </view>
+    <view class='list_price' bindtap="showMore">
+    <view class='price_title' style='border:{{show?"1rpx solid #f3f3f3":"none"}}'>
+      <text>我的奖励</text>
+      <view class='list_itme_right'>
+        <view class='list_itme_right_img'>
+           <image src='../../Images/arrow_gray.png' class="{{show?'imgActive':''}}"></image>
+        </view>
+      </view>
+      </view>
+    <view wx:if="{{show}}" wx:for="{{cashList}}"   class='price_item'>
+    <text>{{item.name}}</text>
+     <text>￥{{item.money}}</text>
+    </view>
+   
+
+
+
+
+    </view>
+    <view class='list_itme' wx:for='{{list}}' bindtap='goTo' data-num="{{index}}">
+      <text>{{item}}</text>
+      <view class='list_itme_right'>
+        <view class='list_itme_right_img'>
+           <image src='../../Images/arrow_gray.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<dialog id='dialog' 
+      title='提示' 
+      content='您还未绑定手机,请先绑定手机再进行操作' 
+      cancelText='取消' 
+      confirmText='确定'
+      isCancel='true'
+      bind:cancelEvent="_cancelEvent"  
+      bind:confirmEvent="_confirmEvent">
+</dialog>
+<downApp id="downApp"></downApp>

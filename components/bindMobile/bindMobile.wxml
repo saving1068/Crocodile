@@ -1,0 +1,20 @@
+<!--pages/components/bindMobile/bindMobile.wxml-->
+<view class="bind__main" wx:if="{{ShowType}}">
+  <view class="bind theCenter" style="margin: 0">
+ 
+    <view class="bind__title">余额支付</view>
+     <view class='totalPay'>{{total}}</view>
+     <view class='totalPay' style='font-size:30rpx;text-align:left;height:80rpx;line-height:80rpx;'>余额： {{haveCash}}</view>
+    <view class="bind__input">
+      <view class="input__phone">
+        <input type="number" maxlength="11" class="input__phone__value" placeholder="请输入6位验证码" value="{{code}}" bindinput="bindCode"/>
+        <view class="input__phone__text {{count>0?'c-898989':''}}" bindtap="getSmsCode">{{count < 1?'获取验证码':count+'s'}}</view>
+      </view>
+      
+    </view>
+    <view class="bind__btn">
+      <text class="bind__btn__cancel" bindtap="close" wx:if="{{!showCancel}}">取消</text>
+      <text class="bind__btn__submit {{showCancel?'w100': ''}}" bindtap="MobileBind">支付</text>
+    </view>
+  </view>
+</view>

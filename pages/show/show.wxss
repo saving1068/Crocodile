@@ -1,0 +1,20 @@
+image{width: 100%;height: 100%}
+.top{height: 360rpx;background: salmon;position: relative;}
+.top_title{width: 200rpx;height: 80rpx;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;text-align: center;color: #ffffff;letter-spacing: 5rpx;}
+.top_title_text{font-size: 40rpx;}
+.top_title_text_1{font-size: 20rpx;color: rgba(241, 240, 240, 0.7);}
+.tabBar_a{overflow: hidden;position: relative;}
+.tabBar_item{float: left;width: 50%;height: 90rpx;text-align: center;line-height: 90rpx;font-size: 28rpx;border-bottom:2rpx solid #e5e5e5 }
+.tabBar_item_active{color:#e6bf6b;}
+.tabBar_bottom{ border-bottom: 5rpx solid  #e6bf6b;transition: 0.5s;position: absolute;bottom: 0;left: 0;width: 50%} 
+.tabBar_bottom_move{left: 50%} 
+.content{padding: 30rpx 25rpx;}
+.content_item{height: 210rpx;border-bottom:1rpx solid #e5e5e5;margin-bottom: 30rpx;position: relative;}
+.content_item_img{width: 260rpx;height: 180rpx;background: salmon;float: left}
+.content_item_text{padding-left: 20rpx;float: left;width: 415rpx;}
+.content_item_text_title{font-size:26rpx;font-weight: 600;padding-left: 5rpx; }
+.content_item_text_val{font-size: 24rpx;color: #666666;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;padding-top: 15rpx;}
+.content_item_text_look{padding-top: 40rpx;font-size: 24rpx;color: #666666;overflow: hidden;position: absolute;bottom: 20rpx;}
+.look_img{width: 40rpx;height: 40rpx;float: left}
+.look_num{float:left;padding-left: 10rpx;}
+.ArticleList{font-size: 26rpx;color: #333333;font-weight: 700;overflow:hidden;text-overflow:ellipsis; white-space:nowrap}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "添加我的地址",
+  "usingComponents": {
+    "region": "../../components/region/region"
+  }
+}

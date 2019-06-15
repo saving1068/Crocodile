@@ -1,0 +1,173 @@
+<!--pages/orderSubmit/orderSubmit.wxml-->
+<!--添加地址-->
+<view style='width:100vw;overflow-x:hidden;'>
+		<view class="add_Region" bindtap="selectAddress" wx:if="{{havesite}}">
+			<view class="Region_div_a">
+				
+        <image  class="Region_span_a" src="../../Images/common_icon_location@3x.png">
+        </image>
+        
+				<view class="Region_p">暂无收货地址，点击添加收货地址</view>
+		
+        <image class="Region_span_b" src="../../Images/common_btn_arrow_grey@3x.png">
+        </image>
+  
+			</view>
+			<view class="Region_ul_a">
+				<view class="Region_li li_a"></view>
+				<view class="Region_li li_b"></view>
+				<view class="Region_li li_c"></view>
+				<view class="Region_li li_a"></view>
+				<view class="Region_li li_b"></view>
+				<view class="Region_li li_c"></view>
+				<view class="Region_li li_a"></view>
+				<view class="Region_li li_b"></view>
+				<view class="Region_li li_c"></view>
+				<view class="Region_li li_a"></view>
+				<view class="Region_li li_b"></view>
+				<view class="Region_li li_c"></view>
+			</view>
+		</view>
+		
+		<!--已有地址-->
+		<view class="add_Regions" bindtap="selectAddress" wx:if="{{!havesite}}">
+			<view class="Region_div_a">
+			<image class="Region_img_a" src="../../Images/common_icon_location@3x.png">
+        </image>
+       
+				<view class="have_top">
+					<view class="have_p_top">
+						<text class="have_name">{{address.name}}</text>
+						<text class="have_phone">{{address.mobile}}</text>
+					</view>
+					<view class="have_p_bottom">{{address.regionInfo[0].region.name}}{{address.regionInfo[1].region.name}}{{address.regionInfo[2].region.name}}{{address.street}}</view>
+				</view>
+			<image class="Region_img_b" src="../../Images/common_btn_arrow_grey@3x.png">
+        </image>
+      
+			</view>
+			<view class="Region_ul_a">
+				<view class="Region_li li_a"></view>
+				<view class="Region_li li_b"></view>
+				<view class="Region_li li_c"></view>
+				<view class="Region_li li_a"></view>
+				<view class="Region_li li_b"></view>
+				<view class="Region_li li_c"></view>
+				<view class="Region_li li_a"></view>
+				<view class="Region_li li_b"></view>
+				<view class="Region_li li_c"></view>
+				<view class="Region_li li_a"></view>
+				<view class="Region_li li_b"></view>
+				<view class="Region_li li_c"></view>
+			</view>
+		</view>
+		
+		<!--商品信息-->
+		<view class="merchandise_news">
+			<view class="merchandise_title">商品详情</view>
+			<view class="merchandise_list">
+				<view class="lis merchandise_li_a">
+					<view class="merchandise_li_div_a" >
+						<image class="merchandise_li_a_img" src="{{goods.imagePath}}"/>
+					</view>
+					<view class="merchandise_li_div_b">
+						<view class="merchandise_li_p_a">{{goods.name}}</view>
+						<view class="merchandise_li_p_b">
+							<text class="merchandise_span_a" wx:if="{{type!=3}}">￥{{goods.originalPrice}}</text>
+              	<text class="merchandise_span_a" wx:if="{{type==3}}">￥{{goods.discountPrice}}</text>
+							<text class="merchandise_span_b">x1</text>
+						</view>
+					</view>
+				</view>
+				<view class="lis  merchandise_li_b">
+					<text class="li_b_span_a">商品总额：</text>
+					<text class="li_b_span_b">￥{{list.goodsAmount}}</text>
+				</view>
+				<view class="lis  merchandise_li_b" wx:if="{{type==1}}" bindtap='goToselect'>
+					<text class="li_b_span_a">优惠券：</text>
+					<text class="li_b_span_b" wx:if="{{list.catusecoupons.length>0||couponId!=0}}" style="color:#FE4436">-￥{{list.reductionAmount}}</text>
+          	<text class="li_b_span_b" wx:if="{{list.catusecoupons.length==0&&couponId==0}}">无可用</text>
+            <image src='../../Images/arrow_gray.png'></image>
+				 </view>
+        <view class="lis  merchandise_li_b" wx:elseif="type!=3">
+					<text class="li_b_span_a">优惠：</text>
+					<text class="li_b_span_b">-￥{{list.reductionAmount}}</text>
+				 </view>
+        
+
+
+
+				<view class="lis  merchandise_li_b">
+					<text class="li_b_span_a">运费：</text>
+					<text class="li_b_span_b">￥{{list.distributionAmount}}</text>
+				</view>
+        <view class="lis  merchandise_li_b" wx:if="{{type==2||type==4}}">
+					<text class="li_b_span_a">税费：</text>
+					<text class="li_b_span_b">￥{{list.taxesDues}}</text>
+				</view>
+				<view class="lis  merchandise_li_b" wx:if="{{type==3}}">
+					<text class="li_b_span_a">您拥有的积分：</text>
+					<text class="li_b_span_b">{{pointsCash}}</text>
+				</view>
+				<view class="lis  merchandise_li_b" wx:if="{{type==3}}">
+					<text class="li_b_span_a">积分：</text>
+					<text class="li_b_span_b">-{{list.integralAmount}}</text>
+				</view>
+				<view class="lis  merchandise_li_b">
+					<text class="li_b_span_a">订单总计：</text>
+					<text class="li_b_span_b">￥{{list.realAmount}}</text>
+				</view>
+			</view>
+		</view>
+		
+		<!--用户留言-->
+		<view class="warp">
+			<view class="leave_word">
+			 <input type='text' style='width:100%;height:100%;' maxlength="120" placeholder='用户留言(选填)' bindinput="changeNum"></input>
+			</view>
+			<view class="numb">{{textareaNum}}/120</view>
+		</view>
+    <view style='height:120rpx;'>
+    </view>
+    </view>
+    <view class='bottom'>
+    <view class='left'>
+    <view class='icon' bindtap='showDialog'>
+    <image src='../../Images/common_btn_notice@2x.png'></image>
+    </view>
+    <text >合计:</text>
+    <text style='color:#f44;margin-right:20rpx;'>￥{{list.realAmount}}</text>
+    </view>
+    <view class='right' bindtap="submit">提交订单</view>
+    </view>
+    <import src="../../components/toastTest/toastTest.wxml"/>
+<template is="toast" data="{{ ..._toast_ }}"/>
+
+
+<view class='wx_dialog_container' hidden="{{!isShow}}">
+    <view class='wx-mask'></view>
+    <view class='wx-dialog'>
+        <view class='wx-dialog-title'>温馨提示</view>
+        <view class='wx-dialog-content'>
+        <view style='margin-bottom:20rpx;padding-left:10rpx;'>● 该订单不支持更改收货地址，请确保收货地址正确。</view>
+        <view style='margin-bottom:20rpx;padding-left:10rpx;'>● 该订单支付成功后，不支持取消订单操作。</view>
+         <view style='margin-bottom:20rpx;padding-left:10rpx;'>● 该商品一经售出，不退不换，有问题请咨询客服。</view>
+        <checkbox-group bindchange="checkboxChange">
+                <label class="weui-cell weui-check__label" style='padding-left:0'>
+                    <checkbox class="weui-check"  checked="{{flag}}"/>
+
+                    <view class="weui-cell__hd weui-check__hd_in-checkbox" style='height:46rpx;'>
+                        <image src='../../Images/check.png' style='width:46rpx;height:46rpx;margin-left:4.6px;margin-right:4.6px;' wx:if="{{flag}}"></image>
+                        <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!flag}}"></icon>
+                        <!-- <icon class="weui-icon-checkbox_success" type="success" size="23" ></icon> -->
+                    </view>
+                    <view class="weui-cell__bd">不再提醒</view>
+                </label>
+            </checkbox-group>
+        </view>
+        <view class='footer' style='border-top:1rpx solid #eeeeee;'>
+         
+          <view class='btn comfirm'  bindtap='comfirm'>知道了</view>
+        </view>
+    </view>
+</view>

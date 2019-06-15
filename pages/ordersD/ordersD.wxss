@@ -1,0 +1,29 @@
+image{width: 100%;height: 100%}
+.warp{background: #f3f3f3;padding-top: 20rpx;}
+.top{background: #ffffff;padding: 40rpx 75rpx;font-size: 28rpx;box-sizing: border-box;margin-bottom: 20rpx}
+.info{position: relative;}
+.info_name{padding-right: 150rpx;float:left}
+.info_number{float: left}
+.info_address{padding-top: 10rpx;}
+.info_img{width: 40rpx;height: 40rpx;position: absolute;left: -50rpx;top: 15rpx;}
+.content{background: #ffffff;padding-bottom: 100rpx}
+.content_top{border-bottom: 1rpx solid #f3f3f3;padding: 20rpx 0 20rpx 25rpx;overflow: hidden;position: relative}
+.content_top_img{width: 160rpx;height: 160rpx;border-radius: 10rpx;overflow: hidden;float:left;}
+.content_top_text{padding-left: 30rpx;float: left;font-size: 28rpx;padding-top: 10rpx;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;display: -webkit-box;width: 430rpx;}
+.content_top_pirce{position: absolute;left: 205rpx;top: 130rpx;font-size: 28rpx;color: #666666}
+.content_middle{border-bottom: 1rpx solid #f3f3f3;padding: 20rpx 0 0rpx 25rpx;color: #666666;font-size: 28rpx;box-sizing: border-box}
+.content_middle view{margin-bottom: 30rpx;}
+.content_bottom{padding: 0rpx 25rpx 30rpx 25rpx;overflow: hidden;box-sizing: border-box;}
+.totalPrice,.discount,.freight{padding-top: 30rpx;overflow: hidden;font-size: 28rpx}
+.content_bottom_text{float: left;color: #666666}
+.content_bottom_num{float: right;color: #e6bf6b}
+.line{overflow: hidden;}
+.line_val{width: 160rpx;float: right;margin-top: 20rpx;height: 2rpx;background: #cccccc;}
+.line_price{color: #fe4b4b;padding-top: 10rpx;overflow: hidden;}
+.line_price_vale{float: right;}
+.bottom_btn{background: #ffffff;height: 100rpx;position: fixed;bottom: 0;border-top:1rpx solid #f3f3f3; }
+.btn{padding-left: 190rpx;overflow: hidden;padding-top: 22rpx;font-size: 26rpx;display: flex}
+.btn_active{padding-left: 380rpx}
+.btn_item{width: 150rpx;height: 60rpx;border-radius:50rpx;text-align: center;line-height: 60rpx ;border: 1rpx solid #cccccc;margin-right: 30rpx;}
+/* .btn_item:nth-of-type(3){color: #e6bf6b;border: 1rpx solid #e6bf6b;} */
+.remarks{font-size: 26rpx;line-height: 50rpx;color:#666666;border-bottom:1rpx solid #f3f3f3;padding:20rpx 0 20rpx 25rpx; }

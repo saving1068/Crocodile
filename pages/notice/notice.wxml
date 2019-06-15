@@ -1,0 +1,16 @@
+<view class="warp">
+  <view class='item' wx:for="{{list}}" bindtap='goToDetail' data-num="{{item.type}}" data-skuId="{{item.skuId}}" data-spuid='{{item.actionContent}}' data-id="{{item.id}}">
+    <view class='item_text'>
+      <view class='item_title'>
+        {{item.title}}
+      </view>
+      <view class='item_content'>
+        {{item.summery}}
+      </view>
+    </view>
+    <view class='item_img'>
+      <image src='{{item.imagePath}}'></image>
+    </view>
+    <view class='dot' wx:if="{{item.status ==0}}"></view>
+  </view>
+</view>

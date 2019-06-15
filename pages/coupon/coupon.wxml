@@ -1,0 +1,133 @@
+<view class='tab'>
+  <view class='tab_item {{currentTab==0 ? "tabBar_item_active" :" "}}'data-current="0" bindtap="swichNav">全部</view>
+  <view class='tab_item {{currentTab==1 ? "tabBar_item_active" :" "}}'data-current="1" bindtap="swichNav">未使用</view>
+  <view class='tab_item {{currentTab==2 ? "tabBar_item_active" :" "}}'data-current="2" bindtap="swichNav">已使用</view>
+  <view class='tabBar_bottom' style="left:{{leftNum}}%"></view>
+</view>
+<view class="warp" >
+  <!-- <swiper current="{{currentTab}}" bindchange="bindChange" style='height:{{swiperHeight}}'> -->
+     <!-- <block>  -->
+      <!-- <swiper-item > -->
+        <view id="item_0" wx:if="{{currentTab == 0}}" style='height:{{swiperHeight}}'>
+          <view class='item' wx:for="{{list}}">
+            <image src='../../Images/my_bg_discount_blac@2x.png'></image>
+            <view class='item_val'>
+              <view class='item_img'>
+                <view wx:if="{{item.reductionType==1}}">
+                  <text>￥</text>{{item.totalAmount}}
+                </view>
+                  <text wx:else>{{item.totalAmount}}折</text>
+              </view>
+              <view class='item_text'>
+                <view class='item_text_title'>{{item.name}}</view>
+                <view class='item_text_summy'>{{item.desctipition}}</view>
+                <view class='item_text_code'>
+                  <view class='item_text_code_left'>{{item.cardNum}}</view>
+                  <view class='item_text_code_right'>剩余<text>{{item.residueDate}}</text>天</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='item' wx:for="{{oldDate}}">
+            <image src='../../Images/my_bg_discount_gray@2x.png'></image>
+            <view class='item_val'>
+              <view class='item_img'>
+                 <view wx:if="{{item.reductionType==1}}">
+                  <text>￥</text>{{item.totalAmount}}
+                </view>
+                  <text wx:else>{{item.totalAmount}}折</text>
+              </view>
+              <view class='item_text'>
+                <view class='item_text_title'>{{item.name}}</view>
+                <view class='item_text_summy'>{{item.desctipition}}</view>
+                <view class='item_text_code'>
+                  <view class='item_text_code_left'>{{item.cardNum}}</view>
+                  <view class='item_text_code_right' style='color:#cccccc'>已使用</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='item' wx:for="{{CouponEdList}}">
+            <image src='../../Images/my_bg_discount_gray@2x.png'></image>
+            <view class='item_val'>
+              <view class='item_img'>
+                <view wx:if="{{item.reductionType==1}}">
+                  <text>￥</text>{{item.totalAmount}}
+                </view>
+                  <text wx:else>{{item.totalAmount}}折</text>
+              </view>
+              <view class='item_text'>
+                <view class='item_text_title'>{{item.name}}</view>
+                <view class='item_text_summy'>{{item.desctipition}}</view>
+                <view class='item_text_code'>
+                  <view class='item_text_code_left'>{{item.cardNum}}</view>
+                  <view class='item_text_code_right' style='color:#cccccc'>已过期</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='not' wx:if="{{allList.length == 0}}">
+              <view class='not_img'>
+                <image src='../../Images/my_icon_coupon@2x.png'></image>
+              </view>
+              <view class='not_font'>暂无优惠券记录</view>
+          </view> 
+        </view>  
+      <!-- </swiper-item> -->
+      <!-- <swiper-item> -->
+        <view id='item_1' wx:if="{{currentTab == 1}}" style='height:{{swiperHeight}}'>
+          <view class='item' wx:for="{{list}}">
+            <image src='../../Images/my_bg_discount_blac@2x.png'></image>
+            <view class='item_val'>
+              <view class='item_img'>
+                <text>￥</text>{{item.totalAmount}}
+              </view>
+              <view class='item_text'>
+                <view class='item_text_title'>{{item.name}}</view>
+                <view class='item_text_summy'>{{item.desctipition}}</view>
+                <view class='item_text_code'>
+                  <view class='item_text_code_left'>{{item.cardNum}}</view>
+                  <view class='item_text_code_right'>剩余<text>{{item.residueDate}}</text>天</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='not' wx:if="{{list.length == 0}}">
+              <view class='not_img'>
+                <image src='../../Images/my_icon_coupon@2x.png'></image>
+              </view>
+              <view class='not_font'>您还没有相关的订单</view>
+              <view class='not_btn' bindtap='goToGoodList'>戳我一下</view>
+          </view> 
+        </view>  
+      <!-- </swiper-item> -->
+      <!-- <swiper-item> -->
+        <view id='item_2' style='height:{{swiperHeight}}' wx:if="{{currentTab == 2}}">
+          <view class='item' wx:for="{{oldDate}}">
+            <image src='../../Images/my_bg_discount_gray@2x.png'></image>
+            <view class='item_val'>
+              <view class='item_img'>
+                  <text>￥</text>{{item.totalAmount}}
+              </view>
+              <view class='item_text'>
+                <view class='item_text_title'>{{item.name}}</view>
+                <view class='item_text_summy'>{{item.desctipition}}</view>
+                <view class='item_text_code' style='color:#cccccc'>
+                  <view class='item_text_code_left'>{{item.cardNum}}</view>
+                  <view class='item_text_code_right' style='color:#cccccc'>已使用</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='not' wx:if="{{oldDate.length == 0}}">
+              <view class='not_img'>
+                <image src='../../Images/my_icon_coupon@2x.png'></image>
+              </view>
+              <view class='not_font'>您还没有相关的订单</view>
+              <view class='not_btn' bindtap='goToGoodList'>戳我一下</view>
+          </view> 
+        </view>  
+      <!-- </swiper-item> -->
+    <!-- </block> -->
+  <!-- </swiper> -->
+</view>

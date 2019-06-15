@@ -1,0 +1,36 @@
+<!--pages/cashier/cashier.wxml-->
+<view class="cashier">
+			<view class="indent">
+				<view class="indent_left">订单金额</view>
+				<view class="indent_right">￥{{cash}}</view>
+			</view>
+			
+			<view class="payment_method">选择付款方式</view>
+			
+			<view class="means">
+				<view class="method" bindtap="popup">
+					<view class="method_a">
+          <image class="wechat" src='../../Images/icon_wechat.png'></image>
+          </view>
+					<view class="method_b">
+						<view class="payment">微信支付</view>
+						<text class="recommend">推荐使用</text>
+					</view>
+					<view class="method_c "><image class="arrows" src='../../Images/arrow_gray.png'>
+          </image></view>
+				</view>
+			
+				<view class="method" bindtap="popup2">
+					<view class="method_a">
+          <image class="my_wallet" src='../../Images/ico_wallet.png'></image>
+          </view>
+					<view class="method_b">
+						<view class="payment">奖励金支付</view>
+						<text class="recommend">使用奖励金支付 </text>
+					</view>
+					<view class="method_c "><image class="arrows" src='../../Images/arrow_gray.png'></image></view>
+				</view>
+			</view>
+			<bindMobile ShowType="{{ShowType}}" total="{{cash}}" haveCash="{{haveCash}}" mobile="{{mobile}}" orderId="{{orderId}}" skuId="{{skuId}}" spuId="{{spuId}}" ></bindMobile>
+		</view>
+  

@@ -1,0 +1,211 @@
+
+<view class='head_swiper'>
+  <swiper indicator-dots autoplay indicator-active-color="#e6bf6b" circular class='head_swiper_val'>
+    <block wx:for="{{head_swiper}}">
+      <swiper-item bindtap="goToActionName" circular data-type="{{item.actionType}}" data-skuId="{{item.skuId}}" data-spuId="{{item.actionContent}}">
+        <image src='{{item.imagePath}}'></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='head_text'>
+    <view class='head_text_img'>
+      <image src='../../Images/home_icon_broadcast@3x.png'></image>
+    </view>
+    <swiper class='head_text_val' autoplay="{{true}}" interval="2000" duration="500" circular="{{true}}" vertical="{{true}}">
+      <swiper-item class='head_text_item' wx:for="{{notices}}">
+        <view>{{item.actionContent}}</view>
+
+      </swiper-item>
+    </swiper>
+    <!-- <view class='head_text_val {{animate==true?"anims":" "}}' >
+      <view class='head_text_item' wx:for="{{notices}}">{{item.actionContent}}</view>
+    </view> -->
+  </view>
+</view>
+<view class='notice' bindtap='goRich'>
+  <view class='notice_img'>
+    <image src='{{adsImg_1}}'></image>
+  </view>
+  <view class='horn'>
+    <image src='../../Images/home_btn_go@2x.png'></image>
+  </view>
+</view>
+<view class='con'>
+  <view class='con_item' wx:for="{{con_item}}" bindtap='goTo' data-num="{{index}}">
+    <view class='con_item_img'>
+      <image src='{{item.imagePath}}'></image>
+    </view>
+    <view class='con_item_text'>
+      <text style='font-weight:700'>{{item.actionName}}</text>
+      <text>{{item.actionContent}}</text>
+    </view>
+  </view>
+</view>
+<view class='bulletin'>
+  <view class='bulletin_title'>
+    美丽快报
+  </view>
+  <view class='bulletin_list'>
+    <swiper autoplay="{{true}}" interval="2000" duration="500" circular="{{true}}" vertical="{{true}}" style="height:34px;">
+      <block>
+        <swiper-item wx:for="{{Arr}}">
+          <view class='bulletin_list_item_val' wx:for="{{item}}">{{item.actionContent}}</view>
+        </swiper-item>
+      </block>
+    </swiper>
+
+  </view>
+</view>
+<view class='advertis_b' bindtap='goToArticleDetails_b'>
+  <image src='{{adsImg_2}}'></image>
+</view>
+<view class='shop'>
+  <view class='shopTitle_warp'>
+    <view class='shopTitle' wx:for="{{vipArr}}" data-spuId='{{item.spuId}}' data-skuId='{{item.skuId}}' bindtap="go_detail">
+      <view class='shopTitle_top'>
+        <view class='shopTitle_top_left'>{{item.catName}}</view>
+        <view class='shopTitle_top_right'>
+          <image src='../../Images/home_bg_star_product@2x.png'></image>
+        </view>
+      </view>
+      <view class='shopTitle_middle'>
+        <view class='shopTitle_middle_img'>
+          <image src='{{item.imagePath}}'></image>
+        </view>
+        <view class='shopTitle_middle_text'>
+
+          <view class='shopTitle_middle_text_T' wx:if="{{item.originalPrice>0}}">￥{{item.originalPrice}}</view>
+          <view class='shopTitle_middle_text_T' wx:if="{{item.discountPrice>0}}">￥{{item.discountPrice}} </view>
+          <view class='shopTitle_middle_text_M'>{{item.name}}</view>
+          <view class='shopTitle_middle_text_B'>{{item.summery}}</view>
+          <view class='shopTitle_middle_text_S' wx:if="{{item.discountPrice<=0}}">
+            <view class='shopTitle_middle_text_S_C' wx:if="item.isBought!=1&&item.isSampleSack==1">免费试用</view>
+            <view class='shopTitle_middle_text_S_C' wx:elif="item.isContinued==1&&item.isBought==1">VIP续领</view>
+            <view class='shopTitle_middle_text_S_C' wx:else>成为VIP</view>
+          </view>
+
+          <view class='shopTitle_middle_text_S' wx:if="{{item.discountPrice>0}}">
+            <view>{{item.discount}}积分</view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='shopList' wx:for='{{shop_List}}' data-spuId='{{item.spuId}}' data-skuId='{{item.skuId}}' bindtap="go_detail">
+    <view class='shopList_top'>
+      <view class='shopList_top_left'>{{item.catName}}</view>
+      <view class='shopList_top_right' wx:if="{{item.originalPrice>0}}" style="width:{{item.catName.length>=3?'60%':'70%'}}">￥{{item.originalPrice}}</view>
+      <view class='shopList_top_right' wx:if="{{item.discountPrice>0}}" style="width:{{item.catName.length>=3?'60%':'70%'}}">{{item.discount}} 积分</view>
+    </view>
+    <view class='shopList_img'>
+      <view class='shopList_img_val'>
+        <image src='{{item.imagePath}}'></image>
+      </view>
+    </view>
+    <view class='shopList_text'>
+      {{item.summery}}
+    </view>
+  </view>
+
+  <view class='shopList' bindtap='goGoods'>
+    <image src='../../Images/common_bg_more@2x.png'></image>
+  </view>
+
+</view>
+<view class='advertis_c' bindtap='goToArticleDetails_c'>
+  <image src='{{adsImg_3}}'></image>
+</view>
+<view class='rich_list'>
+  <view class='rich_head'>
+    <view class='rich_head-left'>
+      <view class='rich_head-left_img'>
+        <image src='../../Images/A0001_home_003.png'></image>
+      </view>
+      <view class='rich_head-left_text'>美丽领吧每日财富星</view>
+    </view>
+    <view class='rich_head-right'>
+      <view class='rich_head-right_text' data-name="rich" bindtap='go_name'>更多</view>
+      <view class='rich_head-right_img'>
+        <image src='../../Images/arrow_gray.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='rich_content'>
+    <view class='rich_content_item' wx:for="{{richList}}" data-name="rich" bindtap='go_name'>
+      <view class='rich_content_item_img'>
+        <image wx:if="{{item.img.imagePath!= ''}}" src='{{item.img.imagePath}}'></image>
+        <image wx:else src='../../Images/my_img_avatar_big@2x.png'></image>
+      </view>
+      <view class='rich_content_item_num'>
+        <image src='{{item.num}}'></image>
+      </view>
+      <view class='rich_content_item_text'>{{item.img.actionName}}</view>
+    </view>
+  </view>
+</view>
+<view class='sister_list'>
+  <view class='sister_head'>
+    <view class='sister_head_left'>
+      <view class='sister_head_left_img'>
+        <image src='../../Images/A0001_home_004.png'></image>
+      </view>
+      <view class='sister_head_left_text'>
+        姐言妹语
+      </view>
+    </view>
+    <view class='sister_head_right'>
+      <view class='sister_head_right_text' data-name="sister" bindtap='go_name'>更多</view>
+      <view class='sister_head_right_img'>
+        <image src='../../Images/arrow_gray.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='sister_content'>
+    <swiper display-multiple-items='3' style='height:180px;'>
+      <block>
+        <swiper-item wx:for="{{sisterList}}" data-name="sister" bindtap='go_name'>
+          <view class='sister_content_item'>
+            <view class='sister_content_item_img'>
+              <image wx:if="{{item.imagePath !=''}}" src='{{item.imagePath}}'></image>
+              <image wx:else src='../../Images/my_img_avatar_big@2x.png'></image>
+            </view>
+            <view class='sister_content_item_title'>{{item.title}}</view>
+            <view class='sister_content_item_name'>{{item.actionName}}</view>
+            <view class='sister_content_item_text'>{{item.actionContent}}</view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+<view class='show_list' data-name="show" bindtap='go_name'>
+  <view class='show_head'>
+    <view class='sister_head_left'>
+      <view class='show_head_left_img'>
+        <image src='../../Images/A0001_home_005.png'></image>
+      </view> 美丽秀场
+    </view>
+    <view class='sister_head_right'>
+      <view class='sister_head_right_text'>更多</view>
+      <view class='sister_head_right_img'>
+        <image src='../../Images/arrow_gray.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='show_content'>
+    <view class='show_img'>
+      <image src='{{adsImg_4}}'></image>
+    </view>
+  </view>
+</view>
+<view class='show_content_ul'>
+  <view class='show_content_li' wx:for="{{btnList}}" data-id='{{item.actionContent}}' bindtap='goToArticleDetails'>
+    <image src='{{item.imagePath}}'></image>
+  </view>
+</view>
+
+<import src="../../components/toastTest/toastTest.wxml" />
+<template is="toast" data="{{ ..._toast_ }}" />
+
+<downApp id="downApp"></downApp>

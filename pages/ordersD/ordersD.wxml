@@ -1,0 +1,105 @@
+<view class="warp">
+  <view class='top'>
+    <view class='info'>
+      <view class='info_img'>
+        <image src='../../Images/common_icon_location@2x.png'></image>
+      </view>
+      <view style='overflow: hidden=;'>
+        <view class='info_name'>收货人：{{name}}</view>
+        <view class='info_number'>{{mobile}}</view>
+      </view>
+      <view class='info_address'>地址：{{list.logistics.regionInfo[0].region.name}}{{list.logistics.regionInfo[1].region.name}}{{list.logistics.regionInfo[2].region.name}}{{street}}</view>
+    </view>
+  </view>
+  <view class='content'>
+    <view class='content_top'>
+      <view class='content_top_img'>
+        <image src='{{order_img}}'></image>
+      </view>
+      <view class='content_top_text'>
+        {{order_name}}  
+      </view>
+      <view class='content_top_pirce'>
+        ￥{{order_goodsAmount}}
+      </view>
+    </view>
+    <view class='remarks'>
+      备注：{{leaveMsg!=""?leaveMsg:'无'}}
+    </view>
+    <view class='content_middle'>
+      <view class='orderT'>
+        下单时间：{{order_time}}
+      </view>
+      <view class='payment'>
+       支付方式：{{order_payType}}
+      </view>
+      <view class='paymentT'>
+        支付时间：{{order_payTime}}
+      </view>
+      <view class='delivery'>
+        配送方式：{{order_Type}}
+      </view>
+    </view>
+    <view class='content_bottom'>
+      <view class='totalPrice'>
+        <view class='content_bottom_text'>商品总额</view>
+       
+        <view class='content_bottom_num' wx:if="{{integralPrice==0}}">￥{{order_goodsAmount}}</view>
+        <view class='content_bottom_num'  wx:else>￥{{integralPrice}}</view>
+      </view>
+       <view class='discount'>
+        <view class='content_bottom_text'>优惠</view>
+        <view class='content_bottom_num'>￥{{order_reductionAmount}}</view>
+      </view>
+        <view class='freight'>
+        <view class='content_bottom_text'>运费</view>
+        <view class='content_bottom_num'>￥{{order_distributionAmount}}</view>
+      </view>
+      <view class='freight' wx:if="{{orderType==2||orderType==4}}">
+        <view class='content_bottom_text'>税费：</view>
+        <view class='content_bottom_num'>￥{{order_taxesDues}}</view>
+      </view>
+      <view class='freight' wx:if="{{integralAmount!=0}}">
+        <view class='content_bottom_text'>积分</view>
+        <view class='content_bottom_num'>￥{{integralAmount}}</view>
+      </view>
+       <view class='line'>
+        <view class='line_val'></view>
+       </view> 
+      <view class='line_price'>
+        <view class='line_price_vale'>￥{{order_realAmount}}</view>
+       
+      </view>
+    </view>
+  </view>
+  <view class='bottom_btn'>
+    <view class="btn {{status == 3?  'btn_active':''}}">
+      <view class='btn_item' wx:if="{{status == 8}}"  bindtap='deleteOrder'>删除订单</view>
+        <view class='btn_item' wx:if="{{status == 3}}"  bindtap='remindOrder'>提醒发货</view> 
+        <view class='btn_item' wx:if="{{status == 6}}"  bindtap='confirmOrder'>确定收货</view> 
+        <view class='btn_item' wx:if="{{status!=3}}" bindtap='goToLogistics'>查看物流</view> 
+        <view class='btn_item' style='border:1rpx solid #e6bf6b;color: #e6bf6b' wx:if="{{status == 1||isContinued!=1||isPassMuster!=1}}" bindtap='goToGoodListD'>立即购买</view>   
+        <view class='btn_item' style='border:1rpx solid #e6bf6b;color: #e6bf6b' wx:if="{{isContinued==1&&isPassMuster==1}}" bindtap='goToGoodListD'>免费续领</view>      
+    </view>
+  </view>
+</view>
+<dialog id='dialog' 
+      title='提示' 
+      content='是否确定删除该订单？' 
+      cancelText='取消' 
+      confirmText='确定'
+      isCancel='true'
+      bind:cancelEvent="_cancelEvent"  
+      bind:confirmEvent="_confirmEvent">
+</dialog>
+<dialog id='dialogs' 
+      title='提示' 
+      content='是否确定收货？' 
+      cancelText='取消' 
+      confirmText='确定'
+      isCancel='true'
+      bind:cancelEvent="_cancelEvents"  
+      bind:confirmEvent="_confirmEvents">
+</dialog>
+<import src="../../components/toastTest/toastTest.wxml"/>
+<template is="toast" data="{{ ..._toast_ }}"/>

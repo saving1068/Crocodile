@@ -1,0 +1,10 @@
+.warp{padding: 25rpx}
+.title{font-size: 32rpx;font-weight: 600;}
+image{width: 100%;height: 100%;}
+.img{width: 705rpx;height: 400rpx;margin: 30rpx 0;}
+.text{font-size: 28rpx;color: #666666;padding-bottom: 100rpx}
+.btn{width: 100%;overflow: hidden;height: 100rpx;position: fixed;bottom: 0;left: 0;font-size: 30rpx;background: #ffffff}
+.btn_left,.btn_right{float: left;width: 50%;padding:25rpx 110rpx;text-align: center;box-sizing: border-box;overflow: hidden;}
+.btn_left_icon,.btn_right_icon{width: 50rpx;height: 50rpx;float: left}
+.btn_a{padding: 0;font-size: 30rpx;line-height: 50rpx;outline: none;background: none}
+.btn_a::after{border:none;}

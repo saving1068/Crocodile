@@ -1,0 +1,25 @@
+<view class="bg">
+  <view class='top'>
+    <view class='top_val'>
+      <view class='top_val_img'>
+        <image src='{{order.imagePath}}'></image>
+      </view>
+      <view class='top_val_font'>
+        <view class='top_val_font_p'>物流公司：{{payment.deliveryType}}</view>
+        <view class='top_val_font_p'>物流单号：{{logistics.sn}}</view>
+        <view class='top_val_font_p'>物流电话：{{logistics.expressTel}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='title'>物流状态</view>
+  <view class='detail'>
+    <view class='detail_item {{index==arr.length-1?"boder_none":""}}' wx:for="{{arr}}" >
+      <view class='detail_item_p'>{{item.context}}</view>
+      <view class='detail_item_p'>{{item.time}}</view>
+      <view class='detail_num' wx:if="{{index==0}}">
+        <view class='detail_num_bg'></view>
+      </view>
+      <view class='detail_num_bg_one' wx:else></view>
+    </view>
+  </view>
+</view>

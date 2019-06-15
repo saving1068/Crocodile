@@ -1,0 +1,166 @@
+<view class="warp">
+  <view class='stop_line' wx:if="{{stop_line}}"></view>
+  <image src='../../Images/zhuanpan.jpg'></image>
+  <view class='box' animation="{{animationData}}">
+    <image src='../../Images/home_turntable_middle@3x.png'></image>
+    <view class='item_1 item'>
+      <view class='item_img'>
+        <image src='../../Images/home_img_gift2@3x.png'></image>
+      </view>
+      <view class='item_font'>一等奖</view>
+    </view>
+    <view class='item_2 item'>
+      <view class='item_img_thank'>
+        <image src='../../Images/home_img_Smiling@2x.png'></image>
+      </view>
+      <view class='item_font'>谢谢参与</view>
+    </view>
+    <view class='item_3 item'>
+      <view class='item_img'>
+        <image src='../../Images/home_img_gift1@2x.png'></image>
+      </view>
+      <view class='item_font'>二等奖</view>
+    </view> 
+    <view class='item_4 item'>
+      <view class='item_img_thank'>
+        <image src='../../Images/home_img_Smiling@2x.png'></image>
+      </view>
+      <view class='item_font'>谢谢参与</view>
+    </view>
+    <view class='item_5 item'>
+     
+      <view class='item_img'>
+        <image src='../../Images/home_img_gift1@2x.png'></image>
+      </view>
+       <view class='item_font'>三等奖</view>
+    </view> 
+    <view class='item_6 item'>
+      <view class='item_img_thank'>
+        <image src='../../Images/home_img_Smiling@2x.png'></image>
+      </view>
+      <view class='item_font'>谢谢参与</view>
+    </view>
+  </view>
+  <view class='border_core_circle' bindtap='rotate'>
+    <image src='../../Images/home_btn_top@2x.png'></image>
+    <view class='needle'>
+      <image src='../../Images/home_img_pointer@2x.png'></image>
+    </view>
+  </view>
+  <view class='miuse' bindtap='playOr'animation="{{playMiuce}}">
+    <image src='../../Images/home_btn_music@2x.png'></image>
+  </view>
+  <view class='bag' bindtap='goToExplain'>
+    <image src='../../Images/home_btn_silkbag@2x.png'></image>
+  </view>
+  <view class="bulb"></view>
+  <view class='bottom_info'>
+    <view>已有<text style='color:#ffbf04;padding:0 8rpx;'>{{joinNum}}</text>人参与</view>
+    <view style='padding-top:20rpx;'>您今天还有<text  style='color:#ffbf04;padding:0 8rpx;'>{{surplusNum}}</text>次抽奖机会</view>
+  </view>
+</view>
+
+
+
+<view class='explain' wx:if="{{explain}}">
+  <view class='explain_top'>
+    <view class='explain_top_item' data-num="0" bindtap='changeItem'>活动说明</view>
+    <view class='explain_top_item' data-num="1" bindtap='changeItem'>我的奖品</view>
+    <view class='line'></view>
+    <view class='fork' bindtap='closeExplain'>
+      <image src='../../Images/common_btn_close@2x.png'></image>
+    </view>
+    <view class='dot' wx:if="{{myAwards.length!=0}}"></view>
+    <view class='bottom_coin {{currentTab==1 ? "move_right" :" "}}'>
+      <image src='../../Images/common_icon_select@2x.png'></image>
+    </view>
+  </view>
+  <view class='explain_top_one' wx:if="{{explain_top}}">
+    <view class='prize'>活动奖品</view>
+    <view class='prize_font'>
+      <view class='prize_font_item'>{{awards[0]}}</view>
+      <view class='prize_font_item'>{{awards[1]}}</view>
+      <view class='prize_font_item'>{{awards[2]}}</view>
+    </view>
+    <view class='time'>活动时间</view>
+    <view class='time_content'>{{startDate}}-{{endDate}}</view>
+    <view class='company'>主办方单位</view>
+    <view class='company_content'>本次活动主办方为：</view>
+    <view class='support'>技术支持</view>
+    <view class='support_content'>页面技术由<text  style='color:#FFEE20' bindtap='gotoAi'>爱特互动（点击了解）</text>提供，技术支持方仅提供页面技术，不承担由活动引起的相关法律责任。</view>
+    <view class='explain_details'>活动说明</view>
+    <view class='explain_details_content'>每人每天有{{times}}次机会。点“开始”最终指针指向的即为您所中的奖品。</view>
+    <!-- <view class='bottom_btn'>
+      <view class='btn_font'>我也要去创办活动</view>
+      <view class='btn_img'><image src='../../Images/common_btn_towenter@2x.png'></image></view>
+    </view> -->
+    <view class='vertical'>
+      <view class='vertical_line'></view>
+    </view>
+  </view>
+    <view class='explain_top_two' wx:if="{{!explain_top}}">
+     <scroll-view scroll-y style='height:810rpx;'>
+        <view class='list_item' wx:for="{{myAwards}}" data-code="{{item.code}}" data-status="{{item.status}}" bindtap='goDrawDetail'>
+          <view class='list_item_name'>{{item.awardName}}</view>
+          <view class='list_item_content'>{{item.deadline}}</view>
+          <view class='list_item_title'>
+            <image src='../../Images/my_icon_exchange@2x.png'></image>
+          </view>
+          <view class='list_item_icon'>
+            <image src='../../Images/my_btn_enter_white@2x.png'></image>
+          </view>
+        </view>
+      </scroll-view>
+      <!-- <view class='explain_top_two_btn'>关注我们</view> -->
+    </view>
+</view>
+
+ 
+<view class='fail' wx:if="{{fail}}"  bindtap='closeFail'>
+  <view class='fail_img'>
+    <image src='../../Images/nowinning_img@2x.png'></image>
+  </view>
+  <view class='fail_btn'>
+    <view class='fail_btn_again'  catchtap='again'>再来一次</view>
+    <!-- <view class='fail_btn_again' catchtap="aaa">关注我们</view> -->
+  </view>
+  <!-- <view class='create_btn' >
+    <view class='create_btn_box'>
+      <view class='btn_font'>我也要去创办活动</view>
+      <view class='btn_img'>
+        <image src='../../Images/common_btn_towenter@2x.png'></image>
+      </view>
+    </view>
+  </view> -->
+</view>
+
+
+<view class='success'  wx:if="{{success}}"  bindtap='closeSuccess'>
+  <view class='success_img'>
+    <image src='../../Images/winning_bg_light@2x.png'></image>
+  </view>
+  <view class='prize_img'>
+    <image src='../../Images/winning_img_gift@2x.png'></image>
+  </view>
+  <view class='success_content'>
+    <view class='success_name'>{{gradeName}}</view>
+    <view class='success_val'>{{name}}</view>
+  </view>
+  <view class='success_btn' catchtap='goToDrawDetail'>
+    查看奖品详情
+  </view>
+</view>
+
+<import src="../../components/toastTest/toastTest.wxml"/>
+<template is="toast" data="{{ ..._toast_ }}"/>
+
+
+<dialog id='dialog' 
+      title='提示' 
+      content='您还未绑定手机,请先绑定手机再进行操作' 
+      cancelText='取消' 
+      confirmText='确定'
+      isCancel='true'
+      bind:cancelEvent="_cancelEvent"  
+      bind:confirmEvent="_confirmEvent">
+</dialog>

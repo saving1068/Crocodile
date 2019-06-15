@@ -1,0 +1,10 @@
+<view class="img_box">
+  <view class='img'>
+    <image src='../../Images/icon_present@2x.png'></image>
+  </view>
+  <view class='font'>兑换成功！</view>
+</view>
+<view class='btn'>
+  <view class='btn_left btn_itme' bindtap='backGame'>返回</view>
+  <view class='btn_right btn_itme' bindtap='goToCoupon'>查看</view>
+</view>

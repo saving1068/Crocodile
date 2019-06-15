@@ -1,0 +1,48 @@
+<view class='warp'>
+  <view class="top">
+    <image src='../../Images/common_bg_blue@2x.png'></image>
+    <view class='top_font'>兑奖期限：{{deadline}}</view>
+  </view>
+  <view class='details'>
+    <view class='details_title'>兑奖详情：</view>
+    <view class='details_content'>
+      <view class='details_item'>
+        <view class='details_item_left'>有效日期</view>
+        <view class='details_item_right'>{{userfulLife}}</view>      
+      </view>
+      <view class='details_item'>
+        <view class='details_item_left'>可用时段</view>
+        <view class='details_item_right'>周一至周四</view>      
+      </view>
+      <view class='details_item'>
+        <view class='details_item_left'>兑奖地址</view>
+        <view class='details_item_right'>
+          <input placeholder='请填写您的兑奖地址或门店地址' confirm-type='完成'></input>
+        </view>      
+      </view>
+      <view class='details_item'>
+        <view class='details_item_left'>兑奖须知</view>
+        <view class='details_item_right'>{{remark}}</view>      
+      </view>
+    </view>
+  </view>
+  <view class='service'>
+    <view class='service_item' bindtap='makePhone'>
+      客服来电
+      <view class='service_img'>
+        <image src='../../Images/details_icon_phone@2x.png'></image>
+      </view>
+    </view>
+    <!-- <view class='service_item'>
+      自定义按钮（未开启）
+      <view class='service_img two'>
+        <image src='../../Images/arrow.png'></image>
+      </view>
+    </view> -->
+  </view>
+  <view class='bottom_btn' bindtap='claimPrize'>
+    立即兑换
+  </view>
+</view>
+<import src="../../components/toastTest/toastTest.wxml"/>
+<template is="toast" data="{{ ..._toast_ }}"/>

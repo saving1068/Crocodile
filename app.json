@@ -1,0 +1,83 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/game/game",
+    "pages/test/test",
+    "pages/Logistics/Logistics",
+    "pages/sharevip/sharevip",
+    "pages/selectCoupon/selectCoupon",
+    "pages/prize/prize",
+    "pages/prizeWin/prizeWin",
+    "pages/buysuccess/buysuccess",
+    "pages/mine/mine",
+    "pages/orders/orders",
+    "pages/coupon/coupon",
+    "pages/goods/goods",
+    "pages/address/address",
+    "pages/massage/massage",
+    "pages/qecode/qecode",
+    "pages/spokesperson/spokesperson",
+    "pages/goodsDetail/goodsDetail",
+    "pages/question/question",
+    "pages/sister/sister",
+    "pages/show/show",
+    "pages/ArticleDetails/ArticleDetails",
+    "pages/cashier/cashier",
+    "pages/orderSubmit/orderSubmit",
+    "pages/rich/rich",
+    "pages/customerservice/customerservice",
+    "pages/ordersD/ordersD",
+    "pages/myInfo/myInfo",
+    "pages/date/date",
+    "pages/notice/notice",
+    "pages/ranking/ranking",
+    "pages/bindphone/bindphone",
+    "pages/logs/logs",
+    "pages/addSite/addSite",
+    "pages/Agreement/Agreement",
+    "pages/Privacy/Privacy"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "美丽领吧",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#e6bf6b",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "Images/index.png",
+        "selectedIconPath": "Images/index_active.png"
+      },
+      {
+        "pagePath": "pages/goods/goods",
+        "text": "全部商品",
+        "iconPath": "Images/goods.png",
+        "selectedIconPath": "Images/goods_active.png"
+      },
+      {
+        "pagePath": "pages/qecode/qecode",
+        "text": "我的二维码",
+        "iconPath": "Images/qecode.png",
+        "selectedIconPath": "Images/qecode_active.png"
+      },
+      {
+        "pagePath": "pages/customerservice/customerservice",
+        "text": "客服",
+        "iconPath": "Images/customerservice.png",
+        "selectedIconPath": "Images/customerservice_active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "Images/mine.png",
+        "selectedIconPath": "Images/mine_active.png"
+      }
+    ]
+  },
+  "debug": true
+}

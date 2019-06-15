@@ -1,0 +1,5 @@
+/* pages/rich/rich.wxss */
+image{
+  width: 100%;
+  height: 8369rpx;
+}

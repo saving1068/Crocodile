@@ -1,0 +1,64 @@
+.bg{background: #f3f3f3}
+.top{ width: 750rpx;height: 250rpx;	background: #262626;display: flex;justify-content: center;align-items: center;padding:0.24rpx 0.6rpx}
+.top_val {width: 705rpx;overflow: hidden;}
+.top_val_img{width: 122rpx;height: 122rpx;border-radius: 50%;float: left;overflow: hidden;}
+.top_val_text{padding-left: 26rpx;float: left;height: 122rpx;font-size: 30rpx;padding-top: 20rpx;color: #ffffff}
+.top_val_text_bottom{margin-top: 20rpx;background: #313131;width: 160rpx;text-align: center;height: 40rpx; border-radius: 20rpx; font-size: 24rpx;line-height: 40rpx;}
+.top_val_text_img{width: 30rpx;height: 30rpx;float: left;padding-top: 6rpx;padding-left: 10rpx;}
+image{width: 100%;height: 100%}
+.top_val_icon{float: right;width: 110rpx;height: 42rpx;margin-top: 42rpx}
+.top_val_icon_left{width: 42rpx; float: left;height: 100%;position: relative}
+.top_val_icon_right{width: 42rpx; float: right;height: 100%;}
+.privilege_bg{height: 255rpx;background: #ffffff;padding: 25rpx 25rpx;}
+.privilege{width: 700rpx;display: flex;justify-content: space-between;align-content:space-between;flex-wrap:wrap;overflow: hidden;height: 246rpx;}
+.privilege_item_title_warp{float: left;}
+.privilege_item_title{width: 170rpx;height: 100%;font-size: 30rpx;text-align: center;line-height:246rpx;color: #333333;font-weight: 600;background: #f5f5f5}
+.privilege_item_warp{float: left;width: 530rpx;}
+.privilege_item{width: 170rpx;height: 120rpx;float: left;font-size: 28rpx;text-align: center;color: #666666;background: #f5f5f5;margin-left: 7.5rpx;margin-bottom: 5rpx}
+.privilege_item_img{width: 60rpx;height: 60rpx;padding-left: 58rpx;padding-top: 16rpx;}
+.money{height: 165rpx;margin-top: 25rpx;background: #ffffff;display: flex;justify-content: center;align-items: center;}
+.money_val{width: 687rpx;height: 104rpx;overflow: hidden;}
+.money_val_title{width: 104rpx;height: 104rpx;float: left}
+.money_val_reward{width: 250rpx;height: 104rpx;float: left;font-size: 28rpx;text-align: center;padding-top: 10rpx;}
+.money_val_reward text,.money_val_integral text{margin-top: 10rpx;display:block;color: #de596a;}
+.money_val_integral{float: left;width: 183rpx;height: 104rpx;font-size: 28rpx;text-align: center;padding-top: 10rpx;}
+.get_integral{width: 150rpx;height: 70rpx;background: #1a1a1a;float: left;margin-top: 18rpx;border-radius: 10rpx;color: #ffffff;font-size: 24rpx;text-align: center;line-height: 70rpx;}
+.list{margin-top: 20rpx;background: #ffffff}
+.list_itme{height: 80rpx;padding: 38rpx 28rpx 0 28rpx;font-size: 30rpx;color: #333333;font-weight: 600;border: 1rpx solid #f3f3f3;}
+.list_itme_right{float: right}
+.list_itme_right_img{width: 15rpx;height: 25rpx;}
+.massage_num{position: absolute;width: 20rpx;height: 20rpx;border-radius: 50%;background: red;top: -5rpx;left: 30rpx;}
+.imgActive{
+  transform: rotate(90deg)
+}
+.list_itme_right_img image{
+  transition: 0.5s;
+}
+.list_price{
+  width: 100%;
+ 
+  font-size: 30rpx;color: #333333;font-weight: 600;border: 1rpx solid #f3f3f3;
+transition: 0.5s;
+}
+.price_title{
+  height: 80rpx;padding: 38rpx 28rpx 0 28rpx;
+  
+}
+.price_item{
+  padding-left:110rpx;
+  height: 90rpx;
+  box-sizing: border-box;
+  line-height: 90rpx; 
+  border: 1rpx solid #f3f3f3;
+}
+.price_item text:nth-child(2){
+  color: #E6BF6B;
+  float: right;
+  margin-right:20rpx; 
+}
+.login_btn{
+  font-size:30rpx; 
+  color: #ffffff;
+  line-height: 45rpx;
+  background: #262626;
+}

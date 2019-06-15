@@ -1,0 +1,28 @@
+<view class="warp">
+  <view class='title'>
+    {{title}}
+  </view>
+  <view class='img'>
+      <image src='{{img}}'></image>
+  </view>
+  <view class='text'>
+    <import src="../../wxParse/wxParse.wxml"/>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>
+   <view class='btn'>
+      <view class='btn_left' bindtap='goToHome'>
+        <view class='btn_left_icon'>
+          <image src='../../Images/index_1.png'></image>
+        </view>
+        <text style='line-height:50rpx'>首页</text>
+      </view>
+      <view class='btn_right'>
+        <button class='btn_a' open-type='share'>
+          <view class='btn_right_icon'>
+          <image src='../../Images/share.png'></image>
+          </view>
+          <text>分享</text>
+        </button>
+      </view>
+    </view> 
+</view>

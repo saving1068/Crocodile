@@ -1,0 +1,61 @@
+<view class="warp">
+  <view class='head'>
+    <text>头像</text>
+    <view class='right_icon' >
+      <image src='../../Images/arrow_gray.png'></image>
+    </view>
+   <view class='head_img'>
+    <image src='{{img}}' wx:if="{{data_img == ''}}"></image>
+    <image src='{{data_img}}' wx:else></image>
+  </view> 
+  </view>
+  <view class='name'>
+    <text>姓名</text>
+    <view class='right_icon'>
+      <image src='../../Images/arrow_gray.png'></image>
+    </view>
+    <view class='name_info'>{{name}}</view>
+  </view>
+  <view class='name' bindtap='changeSex'>
+    <text>性别</text>
+    <view class='right_icon'>
+      <image src='../../Images/arrow_gray.png'></image>
+    </view>
+    <view class='name_info'>{{sex}}</view>
+  </view>
+  <view class='ipone'>
+    <text>手机号</text>
+    <text class='right_ipone'>{{mobile}}</text>
+  </view>
+  <view class='vip'>
+    <text>会员等级</text>
+    <view class='right_box' wx:if="{{lv == 2}}">
+      <text class='right_ipone'>VIP会员</text>
+      <view class='vipImg'>
+        <image src='../../Images/my_icon_vip_gold@2x.png'></image>    
+      </view>
+    </view>
+    <view class='right_box' wx:if="{{lv==1}}">
+      <text class='right_ipone'>普通会员</text>
+      <view class='vipImg'>
+        <image src='../../Images/my_icon_vip_gray@2x.png'></image>    
+      </view>
+    </view>
+<view class='right_box' wx:if="{{lv==0}}">
+      <text class='right_ipone'>游客</text>
+      <view class='vipImg'>
+        <!-- <image src='../../Images/my_icon_vip_gray@2x.png'></image>     -->
+      </view>
+    </view>
+
+  </view>
+</view>
+<dialog id='dialog' 
+      title='请选择' 
+      content='请选择性别' 
+      cancelText='女' 
+      confirmText='男'
+      isCancel='true'
+      bind:cancelEvent="_cancelEvent"  
+      bind:confirmEvent="_confirmEvent">
+</dialog>

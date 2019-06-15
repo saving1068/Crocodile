@@ -1,0 +1,128 @@
+<!--pages/goods/goodsDetail/goodsDetail.wxml-->
+<view>
+<view class='head_swiper'>
+  <swiper indicator-dots autoplay indicator-active-color="#e6bf6b" circular class='head_swiper_val'>
+    <block wx:for="{{head_swiper}}">
+      <swiper-item>
+        <image src='{{item.imagePath}}'></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="detail_box">
+				<view class="detail_box_p">{{name}}</view>
+				<view class="price_p" wx:if="{{type==0}}"><text class="price_span_a">￥{{originalPrice}}</text><text class="price_span_b">{{mailing}}</text></view>
+        	<view class="price_p"  wx:if="{{type==3}}"><text class="price_span_a">￥{{discountPrice}} + {{discount}} 积分</text><text class="price_span_b">{{mailing}}</text></view>
+			</view>
+
+<!-- <view class="base" wx:for="skuList">
+				<image class="base_img" src="{{item}}"></image>
+			</view> -->
+
+<view class='content' style='padding-bottom:100rpx;'>
+  <import src="../../wxParse/wxParse.wxml"/>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+
+<view class="bottom">
+    <view class='bottom_left'>
+			<view class="serve" bindtap="goToHome">
+				<image src="../../Images/index.png"></image>
+				<text>首页</text>
+			</view>
+      <view class="serve" bindtap="cust">
+				<image src="../../Images/common_icon_service@3x.png"></image>
+				<text>客服</text>
+			</view>
+    </view>  
+			<view class="free" wx:if="{{goods.isSampleSack==1&&type!=3&&goods.isBought!=1}}" bindtap="freeGo">免费试用</view>
+			 <view class="free" bindtap="go_submit"  wx:elif="{{goods.isContinued==1&&type!=3&&goods.isBought==1}}" data-type='4' data-isPassMuster="{{goods.isPassMuster}}">免费续领</view>
+			<view class="notFree" wx:elif="{{goods.isSampleSack==0&&type!=3}}" >免费试用未开通</view>
+     
+
+			<view class="buy" bindtap="go_submit" style="width:{{type==3?'550rpx':'275rpx'}}" data-type='1'  >立即购买</view>
+				
+		</view>
+
+
+
+
+
+
+
+
+
+
+
+
+</view>
+<view class='wx_dialog_container' hidden="{{!isShow}}">
+    <view class='wx-mask'></view>
+    <view class='wx-dialog'>
+        <view class='wx-dialog-title'>温馨提示</view>
+        <view class='wx-dialog-content'>
+        
+        <view style='margin-bottom:20rpx;padding-left:10rpx;'>● 购买一次可免费终身续领</view>
+        <checkbox-group bindchange="checkboxChange">
+                <label class="weui-cell weui-check__label" style='padding-left:0'>
+                    <checkbox class="weui-check"  checked="{{flag}}"/>
+
+                    <view class="weui-cell__hd weui-check__hd_in-checkbox" style='height:46rpx;'>
+                        <image src='../../Images/check.png' style='width:46rpx;height:46rpx;margin-left:4.6px;margin-right:4.6px;' wx:if="{{flag}}"></image>
+                        <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!flag}}"></icon>
+                        <!-- <icon class="weui-icon-checkbox_success" type="success" size="23" ></icon> -->
+                    </view>
+                    <view class="weui-cell__bd">不再提醒</view>
+                </label>
+            </checkbox-group>
+        </view>
+        <view class='footer' style='border-top:1rpx solid #eeeeee;'>
+         
+          <view class='btn comfirm'  bindtap='comfirm'>知道了</view>
+        </view>
+    </view>
+</view>
+
+<view class='wx_dialog_container' hidden="{{!isShow1}}">
+    <view class='wx-mask'></view>
+    <view class='wx-dialog'>
+        <view class='wx-dialog-title'>温馨提示</view>
+        <view class='wx-dialog-content'>
+        
+        <view style='margin-bottom:20rpx;padding-left:10rpx;'>● 每个商品每天仅可续领一次</view>
+        
+        </view>
+        <view class='footer' style='border-top:1rpx solid #eeeeee;'>
+         
+          <view class='btn comfirm'  bindtap='comfirm1'>知道了</view>
+        </view>
+    </view>
+</view>
+<view class='wx_dialog_container' hidden="{{!isShow2}}">
+    <view class='wx-mask'></view>
+    <view class='wx-dialog'>
+        <view class='wx-dialog-title'>温馨提示</view>
+        <view class='wx-dialog-content'>
+        
+        <view style='margin-bottom:20rpx;padding-left:10rpx;'>● 您已试用过这个商品了，立即购买后即可无限免费续领</view>
+        
+        </view>
+        <view class='footer' style='border-top:1rpx solid #eeeeee;'>
+         
+          <view class='btn comfirm'  bindtap='comfirm2'>知道了</view>
+        </view>
+    </view>
+</view>
+
+
+
+<dialog id='dialog' 
+      title='提示' 
+      content='您还未绑定手机,请先绑定手机再进行操作' 
+      cancelText='取消' 
+      confirmText='确定'
+      isCancel='true'
+      bind:cancelEvent="_cancelEvent"  
+      bind:confirmEvent="_confirmEvent">
+    </dialog>
+

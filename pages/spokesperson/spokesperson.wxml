@@ -1,0 +1,202 @@
+<view class='head'>
+  <view class='head_val'>
+    <view class='head_item {{num==0 ? "head_item_active" :" "}}' data-num="0" bindtap='bindChange_1'>全部代言人{{allNum}}</view>
+    <view class='head_item {{num==1 ? "head_item_active" :" "}}' data-num="1" bindtap='bindChange_1'>一级代言人{{OneNum}}</view>
+    <view class='head_item {{num==2 ? "head_item_active" :" "}}' data-num="2" bindtap='bindChange_1'>二级代言人{{TwoNum}}</view>
+  </view>
+</view>
+<view class='content' wx:if="{{num == 0}}">
+  <view class='content_head'>
+    <view class='content_item {{currentTab==0 ? "content_item_active" :" "}}' data-current="0" bindtap="swichNav">全部</view>
+    <view class='content_item {{currentTab==1 ? "content_item_active" :" "}}' data-current="1" bindtap="swichNav">VIP代言人</view>
+    <view class='content_item {{currentTab==2 ? "content_item_active" :" "}}'  data-current="2" bindtap="swichNav">普通代言人</view>
+  </view>
+  <!-- <swiper style='height:{{swiperHeight}}' current="{{currentTab}}" bindchange="bindChange" > -->
+    <!-- <block> -->
+      <!-- <swiper-item> -->
+        <view class='content_val' id='item_0' wx:if="{{currentTab == 0}}">
+          <view class='content_val_item' wx:for="{{allList}}">
+            <view class='content_val_item_num'>{{index+1}}</view>
+            <view class='content_val_item_img'>
+              <image wx:if="{{item.imgUrl != ''}}" src='{{item.imgUrl}}'></image>
+              <image wx:else src='../../Images/my_img_avatar_big@2x.png'></image>
+            </view>
+            <view class='content_val_item_text'>
+              <view class='content_val_item_text_top'>
+                <view class='content_val_item_text_top_val'>{{item.name}}<text wx:if="{{item.weight==1}}">（一级）</text><text wx:if="{{item.weight==2}}">（二级）</text></view>
+                <view class='vip' wx:if="{{item.grade == 2}}">VIP</view>
+              </view>
+              <view class='content_val_item_text_bottom'>昨天可提现奖励：{{item.money}}元</view>
+            </view>
+          </view>
+        </view>
+      <!-- </swiper-item> -->
+      <!-- <swiper-item> -->
+        <view class='content_val' id='item_1'  wx:if="{{currentTab == 1}}">
+          <view class='content_val_item' wx:for="{{VipArr}}">
+            <view class='content_val_item_num'>{{index+1}}</view>
+            <view class='content_val_item_img'>
+              <image wx:if="{{item.imgUrl != ''}}" src='{{item.imgUrl}}'></image>
+              <image wx:else src='../../Images/my_img_avatar_big@2x.png'></image>
+            </view>
+            <view class='content_val_item_text'>
+              <view class='content_val_item_text_top'>
+                <view class='content_val_item_text_top_val'>{{item.name}}<text wx:if="{{item.weight==1}}">（一级）</text><text wx:if="{{item.weight==2}}">（二级）</text></view>
+                <view class='vip' wx:if="{{item.grade == 2}}">VIP</view>
+              </view>
+              <view class='content_val_item_text_bottom'>昨天可提现奖励：{{item.money}}元</view>
+            </view>
+          </view>
+        </view>
+      <!-- </swiper-item> -->
+      <!-- <swiper-item> -->
+        <view class='content_val' id='item_2'  wx:if="{{currentTab == 2}}">
+          <view class='content_val_item' wx:for="{{otherArr}}">
+            <view class='content_val_item_num'>{{index+1}}</view>
+            <view class='content_val_item_img'>
+              <image wx:if="{{item.imgUrl != ''}}" src='{{item.imgUrl}}'></image>
+              <image wx:else src='../../Images/my_img_avatar_big@2x.png'></image>
+            </view>
+            <view class='content_val_item_text'>
+              <view class='content_val_item_text_top'>
+                <view class='content_val_item_text_top_val'>{{item.name}}<text wx:if="{{item.weight==1}}">（一级）</text><text wx:if="{{item.weight==2}}">（二级）</text></view>
+                <view class='vip' wx:if="{{item.grade == 2}}">VIP</view>
+              </view>
+              <view class='content_val_item_text_bottom'>昨天可提现奖励：{{item.money}}元</view>
+            </view>
+          </view>
+        </view>
+      <!-- </swiper-item> -->
+    <!-- </block> -->
+  <!-- </swiper> -->
+</view>
+<view class='content' wx:if="{{num == 1}}">
+  <view class='content_head'>
+    <view class='content_item {{currentTab==0 ? "content_item_active" :" "}}' data-current="0" bindtap="swichNav">全部</view>
+    <view class='content_item {{currentTab==1 ? "content_item_active" :" "}}' data-current="1" bindtap="swichNav">VIP代言人</view>
+    <view class='content_item {{currentTab==2 ? "content_item_active" :" "}}'  data-current="2" bindtap="swichNav">普通代言人</view>
+  </view>
+  <!-- <swiper style='height:{{swiperHeight}}' current="{{currentTab}}" bindchange="bindChange" > -->
+    <!-- <block> -->
+      <!-- <swiper-item> -->
+        <view class='content_val' id='item_0'  wx:if="{{currentTab == 0}}">
+          <view class='content_val_item' wx:for="{{allList}}">
+            <view class='content_val_item_num'>{{index+1}}</view>
+            <view class='content_val_item_img'>
+              <image wx:if="{{item.imgUrl != ''}}" src='{{item.imgUrl}}'></image>
+              <image wx:else src='../../Images/my_img_avatar_big@2x.png'></image>
+            </view>
+            <view class='content_val_item_text'>
+              <view class='content_val_item_text_top'>
+                <view class='content_val_item_text_top_val'>{{item.name}}<text wx:if="{{item.weight==1}}">（一级）</text><text wx:if="{{item.weight==2}}">（二级）</text></view>
+                <view class='vip' wx:if="{{item.grade == 2}}">VIP</view>
+              </view>
+              <view class='content_val_item_text_bottom'>昨天可提现奖励：{{item.money}}元</view>
+            </view>
+          </view>
+        </view>
+      <!-- </swiper-item> -->
+      <!-- <swiper-item> -->
+       <view class='content_val' id='item_1'  wx:if="{{currentTab == 1}}">
+          <view class='content_val_item' wx:for="{{VipArr}}">
+            <view class='content_val_item_num'>{{index+1}}</view>
+            <view class='content_val_item_img'>
+              <image wx:if="{{item.imgUrl != ''}}" src='{{item.imgUrl}}'></image>
+              <image wx:else src='../../Images/my_img_avatar_big@2x.png'></image>
+            </view>
+            <view class='content_val_item_text'>
+              <view class='content_val_item_text_top'>
+                <view class='content_val_item_text_top_val'>{{item.name}}<text wx:if="{{item.weight==1}}">（一级）</text><text wx:if="{{item.weight==2}}">（二级）</text></view>
+                <view class='vip' wx:if="{{item.grade == 2}}">VIP</view>
+              </view>
+              <view class='content_val_item_text_bottom'>昨天可提现奖励：{{item.money}}元</view>
+            </view>
+          </view>
+        </view>
+      <!-- </swiper-item> -->
+      <!-- <swiper-item> -->
+       <view class='content_val' id='item_2'  wx:if="{{currentTab == 2}}">
+          <view class='content_val_item' wx:for="{{otherArr}}">
+            <view class='content_val_item_num'>{{index+1}}</view>
+            <view class='content_val_item_img'>
+              <image wx:if="{{item.imgUrl != ''}}" src='{{item.imgUrl}}'></image>
+              <image wx:else src='../../Images/my_img_avatar_big@2x.png'></image>
+            </view>
+            <view class='content_val_item_text'>
+              <view class='content_val_item_text_top'>
+                <view class='content_val_item_text_top_val'>{{item.name}}<text wx:if="{{item.weight==1}}">（一级）</text><text wx:if="{{item.weight==2}}">（二级）</text></view>
+                <view class='vip' wx:if="{{item.grade == 2}}">VIP</view>
+              </view>
+              <view class='content_val_item_text_bottom'>昨天可提现奖励：{{item.money}}元</view>
+            </view>
+          </view>
+        </view>
+      <!-- </swiper-item> -->
+    <!-- </block> -->
+  <!-- </swiper> -->
+</view>
+<view class='content' wx:if="{{num == 2}}">
+  <view class='content_head'>
+    <view class='content_item {{currentTab==0 ? "content_item_active" :" "}}' data-current="0" bindtap="swichNav">全部</view>
+    <view class='content_item {{currentTab==1 ? "content_item_active" :" "}}' data-current="1" bindtap="swichNav">VIP代言人</view>
+    <view class='content_item {{currentTab==2 ? "content_item_active" :" "}}'  data-current="2" bindtap="swichNav">普通代言人</view>
+  </view>
+  <!-- <swiper style='height:{{swiperHeight}}' current="{{currentTab}}" bindchange="bindChange" > -->
+    <!-- <block> -->
+      <!-- <swiper-item> -->
+        <view class='content_val' id='item_0' wx:if="{{currentTab == 0}}">
+          <view class='content_val_item' wx:for="{{allList}}">
+            <view class='content_val_item_num'>{{index+1}}</view>
+            <view class='content_val_item_img'>
+              <image wx:if="{{item.imgUrl != ''}}" src='{{item.imgUrl}}'></image>
+              <image wx:else src='../../Images/my_img_avatar_big@2x.png'></image>
+            </view>
+            <view class='content_val_item_text'>
+              <view class='content_val_item_text_top'>
+                <view class='content_val_item_text_top_val'>{{item.name}}<text wx:if="{{item.weight==1}}">（一级）</text><text wx:if="{{item.weight==2}}">（二级）</text></view>
+                <view class='vip' wx:if="{{item.grade == 2}}">VIP</view>
+              </view>
+              <view class='content_val_item_text_bottom'>昨天可提现奖励：{{item.money}}元</view>
+            </view>
+          </view>
+        </view>
+      <!-- </swiper-item> -->
+      <!-- <swiper-item> -->
+       <view class='content_val' id='item_1' wx:if="{{currentTab == 1}}">
+          <view class='content_val_item' wx:for="{{VipArr}}">
+            <view class='content_val_item_num'>{{index+1}}</view>
+            <view class='content_val_item_img'>
+              <image wx:if="{{item.imgUrl != ''}}" src='{{item.imgUrl}}'></image>
+              <image wx:else src='../../Images/my_img_avatar_big@2x.png'></image>
+            </view>
+            <view class='content_val_item_text'>
+              <view class='content_val_item_text_top'>
+                <view class='content_val_item_text_top_val'>{{item.name}}<text wx:if="{{item.weight==1}}">（一级）</text><text wx:if="{{item.weight==2}}">（二级）</text></view>
+                <view class='vip' wx:if="{{item.grade == 2}}">VIP</view>
+              </view>
+              <view class='content_val_item_text_bottom'>昨天可提现奖励：{{item.money}}元</view>
+            </view>
+          </view>
+        </view>
+      <!-- </swiper-item> -->
+      <!-- <swiper-item> -->
+        <view class='content_val' id='item_2' wx:if="{{currentTab == 2}}">
+          <view class='content_val_item' wx:for="{{otherArr}}">
+            <view class='content_val_item_num'>{{index+1}}</view>
+            <view class='content_val_item_img'>
+              <image wx:if="{{item.imgUrl != ''}}" src='{{item.imgUrl}}'></image>
+              <image wx:else src='../../Images/my_img_avatar_big@2x.png'></image>
+            </view>
+            <view class='content_val_item_text'>
+              <view class='content_val_item_text_top'>
+                <view class='content_val_item_text_top_val'>{{item.name}}<text wx:if="{{item.weight==1}}">（一级）</text><text wx:if="{{item.weight==2}}">（二级）</text></view>
+                <view class='vip' wx:if="{{item.grade == 2}}">VIP</view>
+              </view>
+              <view class='content_val_item_text_bottom'>昨天可提现奖励：{{item.money}}元</view>
+            </view>
+          </view>
+        </view>
+      <!-- </swiper-item> -->
+    <!-- </block> -->
+  <!-- </swiper> -->
+</view>

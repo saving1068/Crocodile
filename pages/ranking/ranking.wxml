@@ -1,0 +1,24 @@
+<view class='warp'>
+  <view class='item' wx:for="{{list}}">
+    <view class='item_num'>
+      <view class='item_num_val'>
+        <image src='../../Images/home_icon_gold@3x.png'wx:if="{{index==0}}"></image>
+        <image src='../../Images/home_icon_silver@3x.png'wx:if="{{index==1}}"></image>
+        <image src='../../Images/home_icon_bronze@3x.png'wx:if="{{index==2}}"></image>
+        <view wx:if="{{index>=3}}">
+          {{index+1}}
+        </view>
+      </view>
+    </view>
+    <view class='item_img'>
+      <view class='item_img_val'>
+        <image wx:if="{{item.imagePath !=''}}" src='{{item.imagePath}}'></image>
+        <image wx:eles src='../../Images/my_img_avatar_big@2x.png'></image>
+      </view>
+    </view>
+    <view class='item_text'>
+      <view class='item_text_top'>{{item.userName}}</view>
+      <view class='item_text_bottom'>昨日可提现奖励：{{item.money}}元</view>
+    </view>
+  </view>
+</view>

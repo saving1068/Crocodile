@@ -1,0 +1,56 @@
+<!--pages/addSite/addSite.wxml-->
+<view class='container' >
+	<view class="center_div" wx:if="{{!Address}}">
+		
+      <image src='../../Images/items_icon_location_default@3x.png'></image>
+			<view>你还没有添加地址哦！</view>
+		</view>
+		<view class="btn" bindtap="address" wx:if="{{!Address}}">添加地址</view>
+
+		<!--有地址时候的HTML-->
+		<view class="warp" wx:if="{{Address}}">
+
+			<view class="have_address" wx:for="{{list}}" wx:for-index="index">
+				<view class="have_top" bindtap="change" data-index="{{index}}" data-id="{{item.id}}">
+					<view class="have_p_top">
+						<text class="have_name">{{item.name}}</text>
+						<text class="have_phone">{{item.mobile}}</text>
+					</view>
+					<view class="have_p_bottom">{{item.regionInfo[0].region.name}}{{item.regionInfo[1].region.name}}{{item.regionInfo[2].region.name}}{{item.street}}</view>
+				</view>
+				<view class="have_bottom">
+				   <view class='selectBox' bindtap='changeSelect' data-id="{{item.id}}" data-index="{{index}}">
+             
+              <view class='cir' wx:if="{{!item.checked}}"></view>
+              <image src='../../Images/check.png' wx:if="{{item.checked}}"></image> 
+             <text>设为默认地址</text>
+           </view>
+
+          <view class='editBox' bindtap="changeAddress" data-id="{{item.id}}">
+          <image  class="edit" src='../../Images/common_btn_edit@3x.png'></image>
+					<text  >编辑</text>
+          
+          </view>
+          				
+ 
+          <view class='deleteBox' bindtap="del" data-id="{{item.id}}" data-index="{{index}}">
+           <image class="delete"  src='../../Images/common_btn_delete@3x.png'></image>
+          	<text>删除</text>
+         
+          </view>
+				
+				</view>
+			</view>
+		</view>
+ <div style="height: 130rpx;"></div>
+		<view class="btns" bindtap="address" wx:if="{{Address}}">添加地址</view>
+</view>
+<dialog id='dialog' 
+      title='提示' 
+      content='是否确认删除此地址' 
+      cancelText='取消' 
+      confirmText='确定'
+      isCancel='true'
+      bind:cancelEvent="_cancelEvent"  
+      bind:confirmEvent="_confirmEvent">
+    </dialog>

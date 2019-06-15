@@ -1,0 +1,6 @@
+/* pages/Privacy/Privacy.wxss */
+.top{height: 90rpx;}
+	.content{padding: 27rpx 24rpx;}
+	.title{width: 93.5%;height: 50rpx;border-bottom: 1rpx solid #000000;font-size: 36rpx;}
+	.list_title{padding: 30rpx 0;}
+	.list_val{width: 93.45%;color: #333333;font-size: 26rpx;line-height: 50rpx;}

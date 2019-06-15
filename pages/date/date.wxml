@@ -1,0 +1,78 @@
+<view class='head'>
+  <image src='../../Images/my_bg_integral@2x.png'></image>
+  <view class='head_poin'>
+    <view class='head_poin_top'>{{score}}</view>
+    <view class='head_poin_font'>我的积分</view>
+  </view>
+</view>
+<view class="page">  
+  <view class="box">  
+    <view class="top">  
+      <view class="top_item">  
+        <view class='left'  bindtap="pickPre" data-key='left'>
+          <image src='../../Images/my_btn_left@3x.png'></image>
+        </view>
+      </view>  
+      <view class="top_item item-content-current-day">  
+        <view class="middle">{{currentYear}}-{{currentMonth}}</view>  
+      </view>  
+      <view class="top_item">  
+        <view class="right" bindtap="pickNext" data-key="right">
+          <image src='../../Images/my_btn_right@3x.png'></image>
+        </view>   
+      </view>  
+    </view>  
+    <view class="box-flex week">  
+      <view class="flex-item week_item">  
+        <view class="item-content ">S</view>  
+      </view>  
+      <view class="flex-item week_item">  
+        <view class="item-content ">M</view>  
+      </view>  
+      <view class="flex-item week_item">  
+        <view class="item-content ">T</view>  
+      </view>  
+      <view class="flex-item week_item">  
+        <view class="item-content ">W</view>  
+      </view>  
+      <view class="flex-item week_item ">  
+        <view class="item-content ">T</view>  
+      </view>  
+      <view class="flex-item week_item">  
+        <view class="item-content ">F</view>  
+      </view>  
+      <view class="flex-item week_item">  
+        <view class="item-content ">S</view>  
+      </view>  
+    </view>  
+    <view class="box-flex">  
+       <view class="flex-item" wx:for="{{days}}" wx:for-index='key' wx:for-item="day" wx:key="{{key}}" data-num="{{vo}}" > 
+          <view class="item-content day_item {{day.flag?'active':''}}" wx:if="{{day.month == currentMonth}}">{{day.day}}</view>  
+             <view class="day_item " wx:else></view>     
+      </view>   
+    </view>  
+  </view>  
+</view>
+<view class='bottom_btn' bindtap='goGood'>立即花积分</view> 
+<!-- <dialog id='dialog' 
+      title='签到成功' 
+      content='获得{{points}}积分' 
+      cancelText='取消' 
+      confirmText='确定'
+      isCancel='false'
+      bind:cancelEvent="_cancelEvent"  
+      bind:confirmEvent="_confirmEvent">
+    </dialog> -->
+
+<view class='wx_dialog_container' wx:if="{{!isShow}}">
+    <view class='wx-mask'></view>
+    <view class='wx-dialog'>
+        <view class='wx-dialog-title'>签到成功</view>
+        <view class='wx-dialog-content'>获得{{points}}积分</view>
+        <view class='footer'>
+        
+          <view class='btn comfirm'  bindtap='confirmEvent'>确定</view>
+        </view>
+    </view>
+</view>
+

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "downApp": "../../components/DownApp/DownApp"
+  }
+}

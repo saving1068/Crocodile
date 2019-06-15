@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "",
+  "backgroundTextStyle": "#fff",
+  "navigationBarTextStyle": "#fff",
+  "navigationBarBackgroundColor": "#262626",
+  "usingComponents": {
+    "dialog": "../../components/Dialog/dialog",
+    "downApp":"../../components/DownApp/DownApp"
+  }
+}

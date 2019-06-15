@@ -1,0 +1,10 @@
+.content{padding: 20rpx 25rpx;position: relative;padding-bottom: 100rpx;}
+.content_img{width: 700rpx;background: salmon;border-radius: 10rpx;overflow: hidden;}
+.content_btn{width: 700rpx;height: 90rpx;background: #e6bf6b;border-radius: 10rpx;color: #ffffff;text-align: center;padding-top: 20rpx;box-sizing: border-box;position: fixed;bottom: 20rpx;left: 25rpx}
+  image{width: 100%;height: 100%}  
+ .content_btn_img{width: 40rpx;height: 40rpx;position: absolute;top: 27rpx;left: 202rpx} 
+ .content_bottom{width: 615rpx;height: 10rpx;background: #756138;position: absolute;left: 65rpx;bottom: 45rpx}
+ .content_bottom_silder{position: relative;}
+ .content_bottom_silder_val{width: 20%;height: 10rpx;float: left;}
+ .tabBar_bottom{ transition: 0.5s;position: absolute;left: 0;width: 20%;height: 10rpx;} 
+.tabBar_item_active{background:#e6bf6b;}

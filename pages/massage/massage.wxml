@@ -1,0 +1,53 @@
+<view class="warp">
+  <view class='notice' data-action="2" bindtap='goToNotice'>
+    <view class='notice_img'>
+      <image src='../../Images/home_icon_notice@2x.png'></image>
+    </view>
+    <view class='notice_text'>
+      <view class='notice_text_top'>
+        <view class='notice_text_top_left'>通知</view>
+        <!-- <view class='notice_text_top_right'>12:41</view> -->
+      </view>
+      <!-- <view class='notice_text_bottom'>通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容</view> -->
+    </view>
+    <view class='num' wx:if="{{notice_num !=0}}">{{notice_num}}</view>
+  </view>
+  <view class='notice' bindtap='goTOcustomerservice'>
+    <view class='notice_img'>
+      <image src='../../Images/home_icon_service@2x.png'></image>
+    </view>
+    <view class='notice_text'>
+      <view class='notice_text_top'>
+        <view class='notice_text_top_left'>客服</view>
+        <view class='notice_text_top_right'></view>
+      </view>
+      <view class='notice_text_bottom'></view>
+    </view>
+  </view>
+  <view class='notice' data-action="4" bindtap='goToLogistics'>
+    <view class='notice_img'>
+      <image src='../../Images/home_icon_logistics@2x.png'></image>
+    </view>
+    <view class='notice_text'>
+      <view class='notice_text_top'>
+        <view class='notice_text_top_left'>物流</view>
+        <view class='notice_text_top_right'></view>
+      </view>
+      <view class='notice_text_bottom'></view>
+    </view>
+    <view class='num' wx:if="{{order_num !=0}}">{{order_num}}</view>
+  </view> 
+  <view class='notice' data-action="3" bindtap='goToNotice'>
+    <view class='notice_img'>
+      <image src='../../Images/home_icon_profit@2x.png'></image>
+    </view>
+    <view class='notice_text'>
+      <view class='notice_text_top'>
+        <view class='notice_text_top_left'>收益</view>
+        <view class='notice_text_top_right'></view>
+      </view>
+      <view class='notice_text_bottom'></view>
+    </view>
+    <view class='num' wx:if="{{money_num !=0}}">{{money_num}}</view>
+  </view>
+</view>

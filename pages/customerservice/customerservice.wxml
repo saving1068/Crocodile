@@ -1,0 +1,57 @@
+<!--pages/customerservice/customerservice.wxml-->
+<view style='padding-top:10rpx'>
+<view class='questionTime'>{{nowDate}}</view>
+<view class='questionBox'>
+<view class='avatar'>
+<image src='../../Images/service_img_ai@2x.png'></image>
+</view>
+<view class='box'>
+<view class='title'>常见问题</view>
+<view wx:for="{{list}}" bindtap='showAnswer' data-id="{{item.id}}">{{item.question}}</view>
+
+<view class='tri'>
+
+</view>
+<view class='triIn'></view>
+
+</view>
+
+
+</view>
+
+
+<view class='questionBox' style='margin-top:20rpx;' wx:if="{{article}}">
+<view class='avatar'>
+<image src='../../Images/service_img_ai@2x.png'></image>
+</view>
+<view class='box'>
+<view class='title'>回答</view>
+<import src="../../wxParse/wxParse.wxml"/>
+
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+
+<view class='tri'>
+
+</view>
+<view class='triIn'></view>
+
+</view>
+
+
+</view>
+
+
+
+</view>
+
+<dialog id='dialog' 
+      title='提示' 
+      content='您还未绑定手机,请先绑定手机再进行操作' 
+      cancelText='取消' 
+      confirmText='确定'
+      isCancel='true'
+      bind:cancelEvent="_cancelEvent"  
+      bind:confirmEvent="_confirmEvent">
+    </dialog>
+
+

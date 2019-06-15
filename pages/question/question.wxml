@@ -1,0 +1,60 @@
+<view class='top'>
+  <image src='{{titleImg}}'></image>
+</view>
+<view class='tabBar_a'>
+  <view class='tabBar_item {{currentTab==0 ? "tabBar_item_active" :" "}}'  data-current="0" bindtap="swichNav">使用指南</view>
+  <view class='tabBar_item {{currentTab==1 ? "tabBar_item_active" :" "}}'  data-current="1" bindtap="swichNav">代言福利</view>
+  <view class='tabBar_item {{currentTab==2 ? "tabBar_item_active" :" "}}'  data-current="2" bindtap="swichNav">产品说明</view>
+  <view class='tabBar_bottom' style="left:{{leftNum}}%"></view>
+</view>
+<view class='content'>
+  <!-- <swiper current="{{currentTab}}" bindchange="bindChange" style='height:{{swiperHeight}}'> -->
+    <!-- <block> -->
+      <!-- <swiper-item> -->
+        <view class='content_item_val' id='item_0'>
+          <view class='content_item' wx:for="{{swiperList}}" data-Aid="{{item.id}}" bindtap='goToArtucleD'>
+            <view class='content_item_num'>{{index+1}}</view>
+            <view class='content_item_text'>
+              <view class='content_item_text_title'>
+                {{item.title}}
+              </view>
+              <view class='content_item_text_val'>
+                {{item.summery}}
+              </view>  
+            </view>
+          </view>
+        </view>
+      <!-- </swiper-item> -->
+      <!-- <swiper-item> -->
+        <!-- <view class='content_item_val' id='item_1'>
+          <view class='content_item' wx:for="{{swiperList}}" data-Aid="{{item.id}}" bindtap='goToArtucleD'>
+            <view class='content_item_num'>{{index+1}}</view>
+            <view class='content_item_text'>
+              <view class='content_item_text_title'>
+                {{item.title}}
+              </view>
+              <view class='content_item_text_val'>
+                {{item.summery}}
+              </view>  
+            </view>
+          </view>
+        </view> -->
+      <!-- </swiper-item> -->
+      <!-- <swiper-item> -->
+        <!-- <view class='content_item_val' id='item_2' data-Aid="{{item.id}}" bindtap='goToArtucleD'>
+          <view class='content_item' wx:for="{{swiperList}}">
+            <view class='content_item_num'>{{index+1}}</view>
+            <view class='content_item_text'>
+              <view class='content_item_text_title'>
+                {{item.title}}
+              </view>
+              <view class='content_item_text_val'>
+                {{item.summery}}
+              </view>  
+            </view>
+          </view>
+        </view> -->
+      <!-- </swiper-item> -->
+    <!-- </block> -->
+  <!-- </swiper> -->
+</view>

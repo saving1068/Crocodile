@@ -1,0 +1,26 @@
+# http://www.jianshu.com/p/df433633816b
+#  /home/gitlab-runner/.local/bin
+
+stages:
+    - deploy
+    - cnpm-install
+    
+job1:
+  stage: deploy
+  only:
+    - develop
+    - test
+  script:
+    - deploy h5 $CI_PROJECT_NAME $CI_COMMIT_REF_NAME
+    - echo "项目:$CI_PROJECT_NAME, 分支:$CI_COMMIT_REF_NAME, job:$CI_JOB_NAME, success";
+    
+job2:
+  stage: cnpm-install
+  only:
+    - develop
+    - test
+  variables: 
+    B_CNPM_INSTALL: 'false'
+  script:
+    - cnpm-install h5 $CI_PROJECT_NAME $CI_COMMIT_REF_NAME $B_CNPM_INSTALL
+    - echo "cnpm-install, B_CNPM_INSTALL=$B_CNPM_INSTALL";

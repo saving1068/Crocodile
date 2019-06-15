@@ -1,0 +1,4 @@
+<!--pages/rich/rich.wxml-->
+
+<image src="{{img}}"></image>
+

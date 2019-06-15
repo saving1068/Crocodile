@@ -1,0 +1,75 @@
+<!--pages/mall/address/address.wxml-->
+<view>
+  <view class="cell">
+    <view class="cell__text cell__text__left">收货人：</view>
+    <view class="cell__input">
+      <input type="text" class="align__left"  placeholder="请输入收货人姓名" value="{{name}}" bindinput="bindName"/>
+    </view>
+  </view>
+
+  <view class="cell">
+    <view class="cell__text cell__text__left">手机号码：</view>
+    <view class="cell__input">
+      <input type="number" maxlength="11" class="align__left"  placeholder="请输入联系电话" value="{{mobile}}" bindinput="bindMobile"/>
+    </view>
+  </view>
+
+  <view class="cell" bindtap="setRegion">
+    <view class="cell__text">选择地区：</view>
+    <view class="cell__input align__left" style="width: 500rpx" >{{region}}</view>
+    <view class="cell__arrow">
+      <image class="cell__arrow__icon" src="../../Images/arrow.png"></image>
+    </view>
+  </view>
+  <view class="cell">
+    <view class="cell__text cell__text__left">详细地址：</view>
+    <view class="cell__input">
+      <input type="text" class="align__left"  placeholder="请输入详细地址" value="{{address}}" bindinput="bindAddress"/>
+    </view>
+  </view>
+
+  <view class="cell" >
+    <view class="cell__text cell__text__left">邮政编码：</view>
+    <view class="cell__input">
+      <input type="number" maxlength="6" class="align__left" value="{{postCode}}" placeholder="选填" bindinput="bindPostCode"/>
+    </view>
+  </view>
+</view>
+<view class="cell" >
+    <view class="cell__text cell__text__left" style='width:250rpx;'>设为默认地址</view>
+    <view class="cell__input">
+      <switch checked="{{selected}}" bindchange="switch1Change" color="#e6bf6b"/>
+    </view>
+  </view>
+ <view class="submit active" bindtap="saveAddr">保存</view> 
+<!-- <view class="del " bindtap="delAddr">删除地址</view>  -->
+
+<region bindsure="getRegion" initializeValue="{{regionList}}" isShowPicker="{{isShowPicker}}"></region>
+
+
+
+<view class="shadow" wx:if="{{false}}">
+  <!--isShowPicker-->
+  <view class="city__picker">
+    <view class="city__btn">
+      <view class="fl" bindtap="showPicker">取消</view>
+      <view class="fr" bindtap="surePicker">确定</view>
+    </view>
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 250px;" value="{{value}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{provinces}}" wx:key="item" class="city__item">{{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{cities}}" wx:key="item" class="city__item">{{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{areas}}" wx:key="item" class="city__item">{{item.name}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+<import src="../../components/toastTest/toastTest.wxml"/>
+<template is="toast" data="{{ ..._toast_ }}"/>
+
+
+

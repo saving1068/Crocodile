@@ -1,0 +1,6 @@
+{ 
+   "navigationBarTitleText": "小活动",
+  "usingComponents": {
+    "dialog": "../../components/Dialog/dialog"
+  }
+}

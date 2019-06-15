@@ -1,0 +1,49 @@
+<!--pages/selectCoupon/selectCoupon.wxml-->
+
+
+
+		<view style="padding-bottom: 1.9rem;background:#f5f5f5;min-height:100vh">
+			<view class='tab'>
+  <view class='tab_item {{currentTab==0 ? "tabBar_item_active" :" "}}'data-current="0" bindtap="swichNav">可用</view>
+  <view class='tab_item {{currentTab==1 ? "tabBar_item_active" :" "}}'data-current="1" bindtap="swichNav">不可用</view>
+ 
+  <view class='tabBar_bottom' style="left:{{leftNum}}%;width:{{width}}%"></view>
+</view>
+			
+		<view id='item_1'  wx:if="{{currentTab==0}}" >
+          <view class='item' wx:for="{{catusecoupons}}" data-couponId="{{item.id}}" bindtap='goPer'>
+            <image src='../../Images/my_bg_discount_blac@2x.png'></image>
+            <view class='item_val'>
+              <view class='item_img'>
+                <text>￥</text>{{item.denomination}}
+              </view>
+              <view class='item_text'>
+                <view class='item_text_title'>{{item.couponName}}</view>
+                <view class='item_text_summy'>{{item.remark}}</view>
+                <view class='item_text_code'>
+                  <view class='item_text_code_left'>{{item.couponCardnum}}</view>
+                  <view class='item_text_code_right'>剩余<text>{{item.residueDate}}</text>天</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          
+        </view>
+			<view id='item_2'  wx:if="{{currentTab==1}}">
+          <view class='item' wx:for="{{nocatusecoupons}}">
+            <image src='../../Images/my_bg_discount_gray@2x.png'></image>
+            <view class='item_val'>
+              <view class='item_img'>
+                  <text>￥</text>{{item.denomination}}
+              </view>
+              <view class='item_text'>
+                <view class='item_text_title'>{{item.couponName}}</view>
+                <view class='item_text_summy'>{{item.remark}}</view>
+                <view class='item_text_code' style='color:#cccccc'>
+                  <view class='item_text_code_left'>{{item.couponCardnum}}</view>
+                  <view class='item_text_code_right' style='color:#cccccc'>不可使用</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>    </view> 

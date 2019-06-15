@@ -1,0 +1,16 @@
+<view class="top">
+  <view class='top_img'>
+    <image src='../../Images/items_icon_payment_success@2x.png'></image>
+  </view>
+  <view class='top_text'>支付成功</view>
+</view>
+<view class='middle'>
+  <view class='middle_title'>温馨提示</view>
+  <view class='middle_text'>如果你无法简洁表达你的想法,那只能说明你还不够了解它</view>
+  <view class='middle_btn'>
+    <view class='btn_left' bindtap='goTogoodList'>查看订单</view>
+    <button class='btn_right' open-type='share'>分享好友</button>
+    <!-- <view class='btn_right'>分享好友</view> -->
+  </view>
+</view>
+<view class='bottom_btn' bindtap='goToHome'>回到首页</view>

@@ -1,0 +1,188 @@
+/* pages/addSite/addSite.wxss */
+.container {
+		padding: 0;
+		background-color: #f3f3f3;
+		width: 100%;
+		min-height: 100vh;
+		position: relative;
+	}
+	/*没有地址是时候页面样式*/
+	
+	.center_div {
+		width: 100%;
+		height: 269rpx;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		margin: auto 0;
+		text-align: center;
+	}
+	
+	.center_div image {
+		width: 157rpx;
+		height: 204rpx;
+	}
+	
+	.center_div view {
+		color: #999999;
+		font-size: 30rpx;
+		padding-top: 30rpx;
+	}
+	
+	.btn {
+		width: 702rpx;
+		height: 88rpx;
+		border: 1rpx solid #e6bf6b;
+		box-sizing: border-box;
+		border-radius: 10rpx;
+    background: #ffffff;
+		color: #e6bf6b;
+		text-align: center;
+		line-height: 88rpx;
+		font-size: 30rpx;
+		position: fixed;
+		bottom: 30rpx;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+	}
+	
+	.btns {
+		width: 702rpx;
+		height:88rpx;
+		border: 1rpx solid #e6bf6b;
+		box-sizing: border-box;
+		border-radius: 10rpx;
+		color: #fff;
+		background-color: #e6bf6b;
+		text-align: center;
+		line-height: 88rpx;
+		font-size: 30rpx;
+		position: fixed;
+		bottom: 30rpx;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+	}
+	/*有地址是时候页面样式*/
+	
+	.warp {
+		width: 100%;
+	}
+	
+	.have_address {
+		width: 100%;
+		height: 235rpx;
+		background-color: #fff;
+		margin-top: 20rpx;
+		padding-left: 24rpx;
+	}
+	
+	.have_top {
+		width: 100%;
+		height: 140rpx;
+		border-bottom: 1rpx solid #e5e5e5;
+		box-sizing: border-box;
+		font-size: 30rpx;
+		color: #333333;
+		padding: 16rpx 48rpx 16rpx 0;
+	}
+	
+	.have_p_top {
+		position: relative;
+		width: 100%;
+		height: 54rpx;
+		line-height: 54rpx;
+	}
+	
+	.have_phone {
+		position: absolute;
+		right: 0;
+	}
+	
+	.have_p_bottom {
+		width: 100%;
+		height: 54rpx;
+		line-height: 54rpx;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	
+	.have_bottom {
+		width: 100%;
+		height: 95rpx;
+		padding: 27.5rpx 24rpx 0 0;
+    box-sizing: border-box;
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	.edit {
+    width: 32rpx;
+    height: 35rpx;
+		display: inline-block;
+	  position: relative;
+    top: 5rpx;
+
+		font-size: 30rpx;
+	
+	}
+	
+	.delete {
+		display: inline-block;
+    width: 34rpx;
+		height: 34rpx;
+	
+		color: #333333;
+	 position: relative;
+    top: 5rpx;
+		
+		font-size: 30rpx;
+	}
+  .editBox{
+    width: 120rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    float: left;
+  }
+  .editBox text{
+    font-size: 30rpx;
+     margin-left: 10rpx;
+  }
+  .deleteBox{
+    width: 120rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+     line-height: 40rpx;
+    float: left
+  }
+  .deleteBox text{
+    font-size: 30rpx;
+    margin-left: 10rpx;
+  }
+  .selectBox{
+
+  }
+  .selectBox .cir{
+    width: 40rpx;
+    height: 40rpx;
+    border: 2rpx solid #999999;
+    border-radius:50%; 
+    position: relative;
+    float: left;
+    top: 5rpx;
+  }
+  .selectBox image{
+    width:42rpx;
+    height: 42rpx;
+    float: left;
+     position: relative;
+    top: 5rpx;
+  }
+  .selectBox text{
+    font-size: 30rpx;
+    position: relative;
+    margin-left: 10rpx;
+   
+  }
